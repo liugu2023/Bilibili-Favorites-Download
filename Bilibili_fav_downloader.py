@@ -12,7 +12,7 @@ import time
 import logging
 from datetime import datetime
 import subprocess
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed, wait, FIRST_COMPLETED
 
 
 class Bili_fav:
@@ -675,6 +675,7 @@ class BiliFavGUI:
         self.buvid3 = tk.StringVar()
         self.output_dir_var = tk.StringVar()
         self.download_danmaku = tk.BooleanVar(value=False)
+        self.max_workers = tk.StringVar(value="3")  # 默认3个并行下载
         
         # 初始化线程池
         self.format_pool = ThreadPoolExecutor(max_workers=3)
@@ -876,17 +877,35 @@ class BiliFavGUI:
         
         # 输出目录选择
         ttk.Label(settings_frame, text="输出目录:").grid(row=0, column=0, sticky='w', padx=5, pady=2)
-        ttk.Entry(settings_frame, textvariable=self.output_dir_var).grid(row=0, column=1, sticky='ew', padx=5)
-        ttk.Button(settings_frame, text="浏览", command=self.select_output_dir).grid(row=0, column=2, padx=5)
+        ttk.Entry(settings_frame, textvariable=self.output_dir_var).grid(row=0, column=1, columnspan=2, sticky='ew', padx=5)
+        ttk.Button(settings_frame, text="浏览", command=self.select_output_dir).grid(row=0, column=3, padx=5)
         
-        # 下载选项
+        # 下载选项行
+        options_frame = ttk.Frame(settings_frame)
+        options_frame.grid(row=1, column=0, columnspan=4, sticky='ew', padx=5, pady=2)
+        
+        # 弹幕下载选项
         danmaku_check = ttk.Checkbutton(
-            settings_frame, 
+            options_frame, 
             text="下载弹幕", 
             variable=self.download_danmaku,
             command=lambda: self.logger.info(f"弹幕下载选项已{'启用' if self.download_danmaku.get() else '禁用'}")
         )
-        danmaku_check.grid(row=1, column=0, columnspan=3, sticky='w', padx=5, pady=2)
+        danmaku_check.pack(side='left')
+        
+        # 并行下载数量选择
+        parallel_frame = ttk.Frame(options_frame)
+        parallel_frame.pack(side='right')
+        
+        ttk.Label(parallel_frame, text="并行下载数:").pack(side='left')
+        parallel_spinbox = ttk.Spinbox(
+            parallel_frame,
+            from_=1,
+            to=10,
+            width=3,
+            textvariable=self.max_workers
+        )
+        parallel_spinbox.pack(side='left', padx=(5, 0))
         
         # 下载列表
         list_frame = ttk.LabelFrame(main_frame, text="下载列表")
@@ -970,8 +989,17 @@ class BiliFavGUI:
         )
         self.cancel_all_btn.grid(row=0, column=5, padx=2)
         
+        # 添加一键添加所有视频按钮
+        self.add_all_btn = ttk.Button(
+            button_frame, 
+            text="一键添加全部", 
+            command=self.add_all_to_queue,
+            state='disabled'
+        )
+        self.add_all_btn.grid(row=0, column=6, padx=2)  # 添加到最后一列
+        
         # 平均分配按钮空间
-        for i in range(6):  # 现在有6个按钮
+        for i in range(7):  # 现在有7个按钮
             button_frame.columnconfigure(i, weight=1)
         
         # 配置grid权重
@@ -1030,6 +1058,7 @@ class BiliFavGUI:
                     'favorites_id': self.favorites_id.get().strip(),
                     'output_dir': self.output_dir_var.get().strip(),
                     'download_danmaku': self.download_danmaku.get(),  # 保存弹幕下载设置
+                    'max_workers': self.max_workers.get(),  # 保存并行下载数量
                     'last_login': {
                         'SESSDATA': sessdata,
                         'bili_jct': bili_jct,
@@ -1168,6 +1197,7 @@ class BiliFavGUI:
             
             # 启用添加到队列按钮
             self.add_to_queue_btn.state(['!disabled'])
+            self.add_all_btn.state(['!disabled'])  # 启用一键添加按钮
             
             # 使用线程池并行获取格式信息
             completed = 0
@@ -1428,7 +1458,7 @@ class BiliFavGUI:
             
             # 检查弹幕下载选项
             danmaku_enabled = self.download_danmaku.get()
-            self.logger.info(f"弹幕下载状态: {'启用' if danmaku_enabled else '禁用'}")
+            self.logger.info(f"弹幕下载状态: {"启用" if danmaku_enabled else "禁用"}")
             
             if not danmaku_enabled:
                 cmd.append('--no-caption')
@@ -1716,25 +1746,54 @@ class BiliFavGUI:
     def process_download_queue(self):
         """处理下载队列的线程"""
         try:
-            while not self.download_queue.empty() and not self.cancelled:
-                video_id, title, format_code, output_dir, item_id = self.download_queue.get()
+            # 创建线程池
+            max_workers = int(self.max_workers.get())
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                futures = []
                 
-                # 更新状态
-                self.download_list.set(item_id, '状态', "下载中")
-                self.download_list.set(item_id, '进度', "0%")
-                self.download_list.set(item_id, '速度', "计算中")
-                
-                # 开始下载
-                self.download_video_thread(video_id, title, format_code, output_dir, item_id)
-                
-                # 等待当前下载完成
-                while any(p.poll() is None for p in self.active_processes):
-                    time.sleep(0.1)
-                    if self.cancelled:
-                        break
-                
-                self.download_queue.task_done()
-                
+                while not self.download_queue.empty() and not self.cancelled:
+                    # 检查当前活动的下载数量
+                    active_downloads = len([f for f in futures if not f.done()])
+                    
+                    # 如果活动下载数量小于最大并行数，添加新的下载任务
+                    while active_downloads < max_workers and not self.download_queue.empty():
+                        video_id, title, format_code, output_dir, item_id = self.download_queue.get()
+                        
+                        # 更新状态
+                        self.download_list.set(item_id, '状态', "下载中")
+                        self.download_list.set(item_id, '进度', "0%")
+                        self.download_list.set(item_id, '速度', "计算中")
+                        
+                        # 提交下载任务
+                        future = executor.submit(
+                            self.download_video_thread,
+                            video_id, title, format_code, output_dir, item_id
+                        )
+                        futures.append(future)
+                        active_downloads += 1
+                        
+                        self.download_queue.task_done()
+                    
+                    # 等待任意一个任务完成
+                    if futures:
+                        done, not_done = wait(futures, return_when=FIRST_COMPLETED)
+                        
+                        # 处理完成的任务
+                        for future in done:
+                            try:
+                                future.result()  # 获取结果以检查是否有异常
+                            except Exception as e:
+                                self.logger.error(f"下载任务执行失败：{str(e)}")
+                    
+                        # 更新futures列表，只保留未完成的任务
+                        futures = list(not_done)
+                    
+                    time.sleep(0.1)  # 避免过度占用CPU
+                    
+                # 等待所有剩余任务完成
+                if futures:
+                    wait(futures)
+                    
         except Exception as e:
             self.logger.error(f"处理下载队列时出错：{str(e)}")
         finally:
@@ -1752,6 +1811,7 @@ class BiliFavGUI:
                     self.favorites_id.set(config.get('favorites_id', ''))
                     self.output_dir_var.set(config.get('output_dir', ''))
                     self.download_danmaku.set(config.get('download_danmaku', False))
+                    self.max_workers.set(config.get('max_workers', '3'))  # 加载并行下载数量
                     
                     # 加载上次登录信息
                     last_login = config.get('last_login', {})
@@ -1775,6 +1835,7 @@ class BiliFavGUI:
                 'favorites_id': self.favorites_id.get().strip(),
                 'output_dir': self.output_dir_var.get().strip(),
                 'download_danmaku': self.download_danmaku.get(),
+                'max_workers': self.max_workers.get(),  # 保存并行下载数量
                 'last_login': {
                     'SESSDATA': self.sessdata.get().strip(),
                     'bili_jct': self.bili_jct.get().strip(),
@@ -1858,6 +1919,83 @@ class BiliFavGUI:
         finally:
             # 销毁窗口
             self.window.destroy()
+
+    def add_all_to_queue(self):
+        """一键添加所有视频到下载队列（使用最高画质）"""
+        try:
+            # 获取输出目录
+            output_dir = self.output_dir_var.get()
+            if not output_dir:
+                messagebox.showwarning("提示", "请先选择输出目录")
+                return
+                
+            # 确认对话框
+            if not messagebox.askyesno("确认", "是否将所有视频以最高画质添加到下载队列？"):
+                return
+                
+            added_count = 0
+            skipped_count = 0
+            
+            # 遍历所有视频
+            for item_id in self.download_list.get_children():
+                item = self.download_list.item(item_id)
+                status = item['values'][2]
+                formats_str = item['values'][3]
+                video_id = item['values'][6]
+                title = item['values'][1]
+                
+                # 跳过已在队列或已完成的视频
+                if status in ["已在队列", "下载中", "已完成"]:
+                    skipped_count += 1
+                    continue
+                
+                # 跳过未获取格式的视频
+                if status == "等待获取格式...":
+                    self.logger.warning(f"跳过未获取格式的视频：{title}")
+                    skipped_count += 1
+                    continue
+                
+                formats = formats_str.split('\n')
+                if not formats or formats[0] == "获取格式失败":
+                    self.logger.warning(f"跳过格式获取失败的视频：{title}")
+                    skipped_count += 1
+                    continue
+                
+                try:
+                    # 选择第一个格式（最高画质）
+                    first_format = formats[0]
+                    format_match = re.search(r'\((.*?)\)', first_format)
+                    if not format_match:
+                        self.logger.error(f"无法从 {first_format} 提取格式代码")
+                        skipped_count += 1
+                        continue
+                        
+                    format_code = format_match.group(1)
+                    self.logger.info(f"为视频 {title} 选择格式：{first_format} (代码: {format_code})")
+                    
+                    # 添加到下载队列
+                    self.download_queue.put((video_id, title, format_code, output_dir, item_id))
+                    self.download_list.set(item_id, '状态', "已在队列")
+                    added_count += 1
+                    
+                except Exception as e:
+                    self.logger.error(f"处理视频 {title} 时出错：{str(e)}")
+                    skipped_count += 1
+                    continue
+            
+            # 显示结果
+            message = f"成功添加 {added_count} 个视频到下载队列"
+            if skipped_count > 0:
+                message += f"\n跳过 {skipped_count} 个视频"
+            messagebox.showinfo("添加完成", message)
+            
+            if added_count > 0:
+                # 启用开始下载按钮
+                self.start_queue_btn.state(['!disabled'])
+                
+        except Exception as e:
+            self.logger.error(f"一键添加视频时出错：{str(e)}")
+            messagebox.showerror("错误", f"一键添加视频时出错：{str(e)}")
 
 def main():
     app = BiliFavGUI()

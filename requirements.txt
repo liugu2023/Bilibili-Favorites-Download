@@ -1,0 +1,7 @@
+you-get
+requests
+urllib3
+certifi
+chardet
+idna
+charset_normalizer 
