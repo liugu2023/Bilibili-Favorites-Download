@@ -1,2 +1,5 @@
 .cursor
 .specstory
+*.json
+*.txt
+logs
