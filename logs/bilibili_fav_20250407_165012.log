@@ -1,0 +1,60 @@
+2025-04-07 16:50:14,593 - INFO - 开始登录...
+2025-04-07 16:50:14,594 - INFO - 尝试刷新登录状态...
+2025-04-07 16:50:15,838 - INFO - 登录刷新成功!
+2025-04-07 16:50:15,839 - INFO - 登录成功!
+2025-04-07 16:50:15,842 - INFO - 成功创建Netscape格式的cookies文件
+2025-04-07 16:50:15,843 - DEBUG - 更新后的Cookie信息: {'SESSDATA': '038423b9%2C1759567815%2Cf75ae141CjB_4DPzfcjS_sEWnI5fqCNyYGyyQXQensTme4AgfOjjadFEPDn7w8nW5xYf7oWUeygSVlR4ejV3V19NcDV1eEI4cWdETURDWTBxdzlaUWhlZjlBTTZzTmxUX3hjQ0FfVXR5MWp5WElXdDlIZDlVUjA0R2dvNFBVN3hud0kwdENpdUl4MlViRzRBIIEC', 'bili_jct': '3866976eb4a60b1ea8a18c47ca1631ce', 'DedeUserID': '501695519', 'DedeUserID__ckMd5': '3584d425f96fc469', 'sid': 'mry3ngkz'}
+2025-04-07 16:50:15,854 - DEBUG - 开始验证登录状态...
+2025-04-07 16:50:15,856 - DEBUG - 当前Cookie信息: {'SESSDATA': '038423b9%2C1759567815%2Cf75ae141CjB_4DPzfcjS_sEWnI5fqCNyYGyyQXQensTme4AgfOjjadFEPDn7w8nW5xYf7oWUeygSVlR4ejV3V19NcDV1eEI4cWdETURDWTBxdzlaUWhlZjlBTTZzTmxUX3hjQ0FfVXR5MWp5WElXdDlIZDlVUjA0R2dvNFBVN3hud0kwdENpdUl4MlViRzRBIIEC', 'bili_jct': '3866976eb4a60b1ea8a18c47ca1631ce', 'buvid3': ''}
+2025-04-07 16:50:15,857 - DEBUG - 发送验证请求...
+2025-04-07 16:50:17,849 - DEBUG - 验证响应: {'code': 0, 'message': '0', 'ttl': 1, 'data': {'isLogin': True, 'email_verified': 1, 'face': 'https://i2.hdslb.com/bfs/face/8d6df08d48ff886b6d2d52cc07b5e167fc472f96.jpg', 'face_nft': 0, 'face_nft_type': 0, 'level_info': {'current_level': 5, 'current_min': 10800, 'current_exp': 18144, 'next_exp': 28800}, 'mid': 501695519, 'mobile_verified': 1, 'money': 280.2, 'moral': 70, 'official': {'role': 0, 'title': '', 'desc': '', 'type': -1}, 'officialVerify': {'type': -1, 'desc': ''}, 'pendant': {'pid': 0, 'name': '', 'image': '', 'expire': 0, 'image_enhance': '', 'image_enhance_frame': '', 'n_pid': 0}, 'scores': 0, 'uname': '取个好昵称真费劲', 'vipDueDate': 0, 'vipStatus': 0, 'vipType': 0, 'vip_pay_type': 0, 'vip_theme_type': 0, 'vip_label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'vip_avatar_subscript': 0, 'vip_nickname_color': '', 'vip': {'type': 0, 'status': 0, 'due_date': 0, 'vip_pay_type': 0, 'theme_type': 0, 'label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'avatar_subscript': 0, 'nickname_color': '', 'role': 0, 'avatar_subscript_url': '', 'tv_vip_status': 0, 'tv_vip_pay_type': 0, 'tv_due_date': 0, 'avatar_icon': {'icon_resource': {}}}, 'wallet': {'mid': 501695519, 'bcoin_balance': 0, 'coupon_balance': 0, 'coupon_due_time': 0}, 'has_shop': False, 'shop_url': '', 'answer_status': 0, 'is_senior_member': 0, 'wbi_img': {'img_url': 'https://i0.hdslb.com/bfs/wbi/7cd084941338484aae1ad9425b84077c.png', 'sub_url': 'https://i0.hdslb.com/bfs/wbi/4932caff0ff746eab6f01bf08b70ac45.png'}, 'is_jury': False, 'name_render': None}}
+2025-04-07 16:50:17,851 - INFO - 成功创建Netscape格式的cookies文件
+2025-04-07 16:50:18,038 - INFO - 登录状态有效：取个好昵称真费劲
+2025-04-07 16:50:22,443 - DEBUG - 开始验证登录状态...
+2025-04-07 16:50:22,444 - DEBUG - 当前Cookie信息: {'SESSDATA': '038423b9%2C1759567815%2Cf75ae141CjB_4DPzfcjS_sEWnI5fqCNyYGyyQXQensTme4AgfOjjadFEPDn7w8nW5xYf7oWUeygSVlR4ejV3V19NcDV1eEI4cWdETURDWTBxdzlaUWhlZjlBTTZzTmxUX3hjQ0FfVXR5MWp5WElXdDlIZDlVUjA0R2dvNFBVN3hud0kwdENpdUl4MlViRzRBIIEC', 'bili_jct': '3866976eb4a60b1ea8a18c47ca1631ce', 'buvid3': ''}
+2025-04-07 16:50:22,444 - DEBUG - 发送验证请求...
+2025-04-07 16:50:23,519 - DEBUG - 验证响应: {'code': 0, 'message': '0', 'ttl': 1, 'data': {'isLogin': True, 'email_verified': 1, 'face': 'https://i2.hdslb.com/bfs/face/8d6df08d48ff886b6d2d52cc07b5e167fc472f96.jpg', 'face_nft': 0, 'face_nft_type': 0, 'level_info': {'current_level': 5, 'current_min': 10800, 'current_exp': 18144, 'next_exp': 28800}, 'mid': 501695519, 'mobile_verified': 1, 'money': 280.2, 'moral': 70, 'official': {'role': 0, 'title': '', 'desc': '', 'type': -1}, 'officialVerify': {'type': -1, 'desc': ''}, 'pendant': {'pid': 0, 'name': '', 'image': '', 'expire': 0, 'image_enhance': '', 'image_enhance_frame': '', 'n_pid': 0}, 'scores': 0, 'uname': '取个好昵称真费劲', 'vipDueDate': 0, 'vipStatus': 0, 'vipType': 0, 'vip_pay_type': 0, 'vip_theme_type': 0, 'vip_label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'vip_avatar_subscript': 0, 'vip_nickname_color': '', 'vip': {'type': 0, 'status': 0, 'due_date': 0, 'vip_pay_type': 0, 'theme_type': 0, 'label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'avatar_subscript': 0, 'nickname_color': '', 'role': 0, 'avatar_subscript_url': '', 'tv_vip_status': 0, 'tv_vip_pay_type': 0, 'tv_due_date': 0, 'avatar_icon': {'icon_resource': {}}}, 'wallet': {'mid': 501695519, 'bcoin_balance': 0, 'coupon_balance': 0, 'coupon_due_time': 0}, 'has_shop': False, 'shop_url': '', 'answer_status': 0, 'is_senior_member': 0, 'wbi_img': {'img_url': 'https://i0.hdslb.com/bfs/wbi/7cd084941338484aae1ad9425b84077c.png', 'sub_url': 'https://i0.hdslb.com/bfs/wbi/4932caff0ff746eab6f01bf08b70ac45.png'}, 'is_jury': False, 'name_render': None}}
+2025-04-07 16:50:23,521 - INFO - 成功创建Netscape格式的cookies文件
+2025-04-07 16:50:23,521 - INFO - 登录状态有效：取个好昵称真费劲
+2025-04-07 16:50:23,522 - INFO - 开始获取用户 501695519 的收藏夹 3473636419
+2025-04-07 16:50:24,539 - INFO - 共找到 6 个视频
+2025-04-07 16:50:24,609 - INFO - 使用缓存的格式信息：BV1uD421T7bx
+2025-04-07 16:50:24,609 - INFO - 使用缓存的格式信息：BV1AcNpegEt1
+2025-04-07 16:50:24,609 - INFO - 使用缓存的格式信息：BV1tM411B7NA
+2025-04-07 16:50:25,011 - INFO - 完成获取格式：视频 BV1uD421T7bx
+2025-04-07 16:50:25,150 - INFO - 完成获取格式：视频 BV1AcNpegEt1
+2025-04-07 16:50:25,205 - INFO - 完成获取格式：视频 BV1tM411B7NA
+2025-04-07 16:50:25,205 - INFO - 格式信息获取进度: 3/6
+2025-04-07 16:50:25,239 - INFO - 使用缓存的格式信息：BV1X341177zi
+2025-04-07 16:50:25,239 - INFO - 使用缓存的格式信息：BV1pu4y1N7KM
+2025-04-07 16:50:25,239 - INFO - 使用缓存的格式信息：BV11u4y1B71e
+2025-04-07 16:50:25,344 - INFO - 完成获取格式：视频 BV1X341177zi
+2025-04-07 16:50:25,418 - INFO - 完成获取格式：视频 BV1pu4y1N7KM
+2025-04-07 16:50:25,498 - INFO - 完成获取格式：视频 BV11u4y1B71e
+2025-04-07 16:50:25,499 - INFO - 格式信息获取进度: 6/6
+2025-04-07 16:50:25,540 - INFO - 所有视频格式获取完成
+2025-04-07 16:50:34,557 - INFO - 已添加 1 个视频到下载队列
+2025-04-07 16:50:37,417 - INFO - 弹幕下载状态: 禁用
+2025-04-07 16:50:37,418 - INFO - 跳过下载视频 【星穹铁道】卡芙卡PV——「戏剧性漏气」 的弹幕
+2025-04-07 16:50:37,462 - DEBUG - 下载命令: "you-get" --format=dash-flv-AVC -o "D:/System/Desktop" -c "cookies.txt" --no-caption "https://www.bilibili.com/video/BV11u4y1B71e"
+2025-04-07 16:50:39,354 - INFO - 暂停下载：【星穹铁道】卡芙卡PV——「戏剧性漏气」
+2025-04-07 16:50:43,097 - INFO - 继续下载：【星穹铁道】卡芙卡PV——「戏剧性漏气」
+2025-04-07 16:51:06,361 - INFO - 取消下载：【星穹铁道】卡芙卡PV——「戏剧性漏气」
+2025-04-07 16:51:13,175 - INFO - 已添加 1 个视频到下载队列
+2025-04-07 16:51:13,219 - INFO - 弹幕下载状态: 禁用
+2025-04-07 16:51:13,219 - INFO - 跳过下载视频 【星穹铁道】卡芙卡PV——「戏剧性漏气」 的弹幕
+2025-04-07 16:51:13,224 - DEBUG - 下载命令: "you-get" --format=dash-flv-AVC -o "D:/System/Desktop" -c "cookies.txt" --no-caption "https://www.bilibili.com/video/BV11u4y1B71e"
+2025-04-07 16:51:14,223 - ERROR - 下载失败：you-get: [error] oops, something went wrong.
+you-get: don't panic, c'est la vie. please try the following steps:
+you-get:   (1) Rule out any network problem.
+you-get:   (2) Make sure you-get is up-to-date.
+you-get:   (3) Check if the issue is already known, on
+you-get:         https://github.com/soimort/you-get/wiki/Known-Bugs
+you-get:         https://github.com/soimort/you-get/issues
+you-get:   (4) Run the command with '--debug' option,
+you-get:       and report this issue with the full output.
+
+2025-04-07 16:51:23,839 - INFO - 已添加 1 个视频到下载队列
+2025-04-07 16:51:23,950 - INFO - 弹幕下载状态: 禁用
+2025-04-07 16:51:23,952 - INFO - 跳过下载视频 《原神》角色演示-「珐露珊：百岁珊」 的弹幕
+2025-04-07 16:51:23,955 - DEBUG - 下载命令: "you-get" --format=dash-flv-AVC -o "D:/System/Desktop" -c "cookies.txt" --no-caption "https://www.bilibili.com/video/BV1tM411B7NA"

@@ -1,0 +1,1014 @@
+2025-04-07 16:24:46,783 - INFO - 开始登录...
+2025-04-07 16:24:46,783 - INFO - 开始登录...
+2025-04-07 16:24:46,784 - INFO - 尝试刷新登录状态...
+2025-04-07 16:24:46,784 - INFO - 尝试刷新登录状态...
+2025-04-07 16:24:46,970 - INFO - 登录刷新成功!
+2025-04-07 16:24:46,970 - INFO - 登录刷新成功!
+2025-04-07 16:24:46,972 - INFO - 登录成功!
+2025-04-07 16:24:46,972 - INFO - 登录成功!
+2025-04-07 16:24:46,976 - INFO - 成功创建Netscape格式的cookies文件
+2025-04-07 16:24:46,976 - INFO - 成功创建Netscape格式的cookies文件
+2025-04-07 16:24:46,982 - DEBUG - 更新后的Cookie信息: {'SESSDATA': 'a2e537f8%2C1759566287%2Cd8944541CjDKVD1SOlIpANaBtQTuz7kJNfeEzgqqWI2KA9bbQdk9bJ9hBm6Xx8uegGKEEerEl0MSVmNhTzVOM2RvRWVBZTRBMUdhQUtuOGhMeVdCUlllZjR6WWVqMlk4eGlKZkZhYlp2ZXFROWtmcUlVNHlJWDFYanpJamxmTUI2SE1Xci13TVpJbGd3bTl3IIEC', 'bili_jct': '3aac06f77d7fb33cd0cb21d998cb04b6', 'DedeUserID': '501695519', 'DedeUserID__ckMd5': '3584d425f96fc469', 'sid': 'p5p08z1q'}
+2025-04-07 16:24:46,982 - DEBUG - 更新后的Cookie信息: {'SESSDATA': 'a2e537f8%2C1759566287%2Cd8944541CjDKVD1SOlIpANaBtQTuz7kJNfeEzgqqWI2KA9bbQdk9bJ9hBm6Xx8uegGKEEerEl0MSVmNhTzVOM2RvRWVBZTRBMUdhQUtuOGhMeVdCUlllZjR6WWVqMlk4eGlKZkZhYlp2ZXFROWtmcUlVNHlJWDFYanpJamxmTUI2SE1Xci13TVpJbGd3bTl3IIEC', 'bili_jct': '3aac06f77d7fb33cd0cb21d998cb04b6', 'DedeUserID': '501695519', 'DedeUserID__ckMd5': '3584d425f96fc469', 'sid': 'p5p08z1q'}
+2025-04-07 16:24:46,996 - DEBUG - 开始验证登录状态...
+2025-04-07 16:24:46,996 - DEBUG - 开始验证登录状态...
+2025-04-07 16:24:47,004 - DEBUG - 当前Cookie信息: {'SESSDATA': 'a2e537f8%2C1759566287%2Cd8944541CjDKVD1SOlIpANaBtQTuz7kJNfeEzgqqWI2KA9bbQdk9bJ9hBm6Xx8uegGKEEerEl0MSVmNhTzVOM2RvRWVBZTRBMUdhQUtuOGhMeVdCUlllZjR6WWVqMlk4eGlKZkZhYlp2ZXFROWtmcUlVNHlJWDFYanpJamxmTUI2SE1Xci13TVpJbGd3bTl3IIEC', 'bili_jct': '3aac06f77d7fb33cd0cb21d998cb04b6', 'buvid3': ''}
+2025-04-07 16:24:47,004 - DEBUG - 当前Cookie信息: {'SESSDATA': 'a2e537f8%2C1759566287%2Cd8944541CjDKVD1SOlIpANaBtQTuz7kJNfeEzgqqWI2KA9bbQdk9bJ9hBm6Xx8uegGKEEerEl0MSVmNhTzVOM2RvRWVBZTRBMUdhQUtuOGhMeVdCUlllZjR6WWVqMlk4eGlKZkZhYlp2ZXFROWtmcUlVNHlJWDFYanpJamxmTUI2SE1Xci13TVpJbGd3bTl3IIEC', 'bili_jct': '3aac06f77d7fb33cd0cb21d998cb04b6', 'buvid3': ''}
+2025-04-07 16:24:47,008 - DEBUG - 发送验证请求...
+2025-04-07 16:24:47,008 - DEBUG - 发送验证请求...
+2025-04-07 16:24:47,198 - DEBUG - 验证响应: {'code': 0, 'message': '0', 'ttl': 1, 'data': {'isLogin': True, 'email_verified': 1, 'face': 'https://i2.hdslb.com/bfs/face/8d6df08d48ff886b6d2d52cc07b5e167fc472f96.jpg', 'face_nft': 0, 'face_nft_type': 0, 'level_info': {'current_level': 5, 'current_min': 10800, 'current_exp': 18144, 'next_exp': 28800}, 'mid': 501695519, 'mobile_verified': 1, 'money': 280.2, 'moral': 70, 'official': {'role': 0, 'title': '', 'desc': '', 'type': -1}, 'officialVerify': {'type': -1, 'desc': ''}, 'pendant': {'pid': 0, 'name': '', 'image': '', 'expire': 0, 'image_enhance': '', 'image_enhance_frame': '', 'n_pid': 0}, 'scores': 0, 'uname': '取个好昵称真费劲', 'vipDueDate': 0, 'vipStatus': 0, 'vipType': 0, 'vip_pay_type': 0, 'vip_theme_type': 0, 'vip_label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'vip_avatar_subscript': 0, 'vip_nickname_color': '', 'vip': {'type': 0, 'status': 0, 'due_date': 0, 'vip_pay_type': 0, 'theme_type': 0, 'label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'avatar_subscript': 0, 'nickname_color': '', 'role': 0, 'avatar_subscript_url': '', 'tv_vip_status': 0, 'tv_vip_pay_type': 0, 'tv_due_date': 0, 'avatar_icon': {'icon_resource': {}}}, 'wallet': {'mid': 501695519, 'bcoin_balance': 0, 'coupon_balance': 0, 'coupon_due_time': 0}, 'has_shop': False, 'shop_url': '', 'answer_status': 0, 'is_senior_member': 0, 'wbi_img': {'img_url': 'https://i0.hdslb.com/bfs/wbi/7cd084941338484aae1ad9425b84077c.png', 'sub_url': 'https://i0.hdslb.com/bfs/wbi/4932caff0ff746eab6f01bf08b70ac45.png'}, 'is_jury': False, 'name_render': None}}
+2025-04-07 16:24:47,198 - DEBUG - 验证响应: {'code': 0, 'message': '0', 'ttl': 1, 'data': {'isLogin': True, 'email_verified': 1, 'face': 'https://i2.hdslb.com/bfs/face/8d6df08d48ff886b6d2d52cc07b5e167fc472f96.jpg', 'face_nft': 0, 'face_nft_type': 0, 'level_info': {'current_level': 5, 'current_min': 10800, 'current_exp': 18144, 'next_exp': 28800}, 'mid': 501695519, 'mobile_verified': 1, 'money': 280.2, 'moral': 70, 'official': {'role': 0, 'title': '', 'desc': '', 'type': -1}, 'officialVerify': {'type': -1, 'desc': ''}, 'pendant': {'pid': 0, 'name': '', 'image': '', 'expire': 0, 'image_enhance': '', 'image_enhance_frame': '', 'n_pid': 0}, 'scores': 0, 'uname': '取个好昵称真费劲', 'vipDueDate': 0, 'vipStatus': 0, 'vipType': 0, 'vip_pay_type': 0, 'vip_theme_type': 0, 'vip_label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'vip_avatar_subscript': 0, 'vip_nickname_color': '', 'vip': {'type': 0, 'status': 0, 'due_date': 0, 'vip_pay_type': 0, 'theme_type': 0, 'label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'avatar_subscript': 0, 'nickname_color': '', 'role': 0, 'avatar_subscript_url': '', 'tv_vip_status': 0, 'tv_vip_pay_type': 0, 'tv_due_date': 0, 'avatar_icon': {'icon_resource': {}}}, 'wallet': {'mid': 501695519, 'bcoin_balance': 0, 'coupon_balance': 0, 'coupon_due_time': 0}, 'has_shop': False, 'shop_url': '', 'answer_status': 0, 'is_senior_member': 0, 'wbi_img': {'img_url': 'https://i0.hdslb.com/bfs/wbi/7cd084941338484aae1ad9425b84077c.png', 'sub_url': 'https://i0.hdslb.com/bfs/wbi/4932caff0ff746eab6f01bf08b70ac45.png'}, 'is_jury': False, 'name_render': None}}
+2025-04-07 16:24:47,309 - INFO - 成功创建Netscape格式的cookies文件
+2025-04-07 16:24:47,309 - INFO - 成功创建Netscape格式的cookies文件
+2025-04-07 16:24:47,604 - INFO - 登录状态有效：取个好昵称真费劲
+2025-04-07 16:24:47,604 - INFO - 登录状态有效：取个好昵称真费劲
+2025-04-07 16:24:55,658 - DEBUG - 开始验证登录状态...
+2025-04-07 16:24:55,658 - DEBUG - 开始验证登录状态...
+2025-04-07 16:24:55,659 - DEBUG - 当前Cookie信息: {'SESSDATA': 'a2e537f8%2C1759566287%2Cd8944541CjDKVD1SOlIpANaBtQTuz7kJNfeEzgqqWI2KA9bbQdk9bJ9hBm6Xx8uegGKEEerEl0MSVmNhTzVOM2RvRWVBZTRBMUdhQUtuOGhMeVdCUlllZjR6WWVqMlk4eGlKZkZhYlp2ZXFROWtmcUlVNHlJWDFYanpJamxmTUI2SE1Xci13TVpJbGd3bTl3IIEC', 'bili_jct': '3aac06f77d7fb33cd0cb21d998cb04b6', 'buvid3': ''}
+2025-04-07 16:24:55,659 - DEBUG - 当前Cookie信息: {'SESSDATA': 'a2e537f8%2C1759566287%2Cd8944541CjDKVD1SOlIpANaBtQTuz7kJNfeEzgqqWI2KA9bbQdk9bJ9hBm6Xx8uegGKEEerEl0MSVmNhTzVOM2RvRWVBZTRBMUdhQUtuOGhMeVdCUlllZjR6WWVqMlk4eGlKZkZhYlp2ZXFROWtmcUlVNHlJWDFYanpJamxmTUI2SE1Xci13TVpJbGd3bTl3IIEC', 'bili_jct': '3aac06f77d7fb33cd0cb21d998cb04b6', 'buvid3': ''}
+2025-04-07 16:24:55,660 - DEBUG - 发送验证请求...
+2025-04-07 16:24:55,660 - DEBUG - 发送验证请求...
+2025-04-07 16:24:55,767 - DEBUG - 验证响应: {'code': 0, 'message': '0', 'ttl': 1, 'data': {'isLogin': True, 'email_verified': 1, 'face': 'https://i2.hdslb.com/bfs/face/8d6df08d48ff886b6d2d52cc07b5e167fc472f96.jpg', 'face_nft': 0, 'face_nft_type': 0, 'level_info': {'current_level': 5, 'current_min': 10800, 'current_exp': 18144, 'next_exp': 28800}, 'mid': 501695519, 'mobile_verified': 1, 'money': 280.2, 'moral': 70, 'official': {'role': 0, 'title': '', 'desc': '', 'type': -1}, 'officialVerify': {'type': -1, 'desc': ''}, 'pendant': {'pid': 0, 'name': '', 'image': '', 'expire': 0, 'image_enhance': '', 'image_enhance_frame': '', 'n_pid': 0}, 'scores': 0, 'uname': '取个好昵称真费劲', 'vipDueDate': 0, 'vipStatus': 0, 'vipType': 0, 'vip_pay_type': 0, 'vip_theme_type': 0, 'vip_label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'vip_avatar_subscript': 0, 'vip_nickname_color': '', 'vip': {'type': 0, 'status': 0, 'due_date': 0, 'vip_pay_type': 0, 'theme_type': 0, 'label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'avatar_subscript': 0, 'nickname_color': '', 'role': 0, 'avatar_subscript_url': '', 'tv_vip_status': 0, 'tv_vip_pay_type': 0, 'tv_due_date': 0, 'avatar_icon': {'icon_resource': {}}}, 'wallet': {'mid': 501695519, 'bcoin_balance': 0, 'coupon_balance': 0, 'coupon_due_time': 0}, 'has_shop': False, 'shop_url': '', 'answer_status': 0, 'is_senior_member': 0, 'wbi_img': {'img_url': 'https://i0.hdslb.com/bfs/wbi/7cd084941338484aae1ad9425b84077c.png', 'sub_url': 'https://i0.hdslb.com/bfs/wbi/4932caff0ff746eab6f01bf08b70ac45.png'}, 'is_jury': False, 'name_render': None}}
+2025-04-07 16:24:55,767 - DEBUG - 验证响应: {'code': 0, 'message': '0', 'ttl': 1, 'data': {'isLogin': True, 'email_verified': 1, 'face': 'https://i2.hdslb.com/bfs/face/8d6df08d48ff886b6d2d52cc07b5e167fc472f96.jpg', 'face_nft': 0, 'face_nft_type': 0, 'level_info': {'current_level': 5, 'current_min': 10800, 'current_exp': 18144, 'next_exp': 28800}, 'mid': 501695519, 'mobile_verified': 1, 'money': 280.2, 'moral': 70, 'official': {'role': 0, 'title': '', 'desc': '', 'type': -1}, 'officialVerify': {'type': -1, 'desc': ''}, 'pendant': {'pid': 0, 'name': '', 'image': '', 'expire': 0, 'image_enhance': '', 'image_enhance_frame': '', 'n_pid': 0}, 'scores': 0, 'uname': '取个好昵称真费劲', 'vipDueDate': 0, 'vipStatus': 0, 'vipType': 0, 'vip_pay_type': 0, 'vip_theme_type': 0, 'vip_label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'vip_avatar_subscript': 0, 'vip_nickname_color': '', 'vip': {'type': 0, 'status': 0, 'due_date': 0, 'vip_pay_type': 0, 'theme_type': 0, 'label': {'path': '', 'text': '', 'label_theme': '', 'text_color': '', 'bg_style': 0, 'bg_color': '', 'border_color': '', 'use_img_label': True, 'img_label_uri_hans': '', 'img_label_uri_hant': '', 'img_label_uri_hans_static': 'https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png', 'img_label_uri_hant_static': 'https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png'}, 'avatar_subscript': 0, 'nickname_color': '', 'role': 0, 'avatar_subscript_url': '', 'tv_vip_status': 0, 'tv_vip_pay_type': 0, 'tv_due_date': 0, 'avatar_icon': {'icon_resource': {}}}, 'wallet': {'mid': 501695519, 'bcoin_balance': 0, 'coupon_balance': 0, 'coupon_due_time': 0}, 'has_shop': False, 'shop_url': '', 'answer_status': 0, 'is_senior_member': 0, 'wbi_img': {'img_url': 'https://i0.hdslb.com/bfs/wbi/7cd084941338484aae1ad9425b84077c.png', 'sub_url': 'https://i0.hdslb.com/bfs/wbi/4932caff0ff746eab6f01bf08b70ac45.png'}, 'is_jury': False, 'name_render': None}}
+2025-04-07 16:24:55,769 - INFO - 成功创建Netscape格式的cookies文件
+2025-04-07 16:24:55,769 - INFO - 成功创建Netscape格式的cookies文件
+2025-04-07 16:24:55,770 - INFO - 登录状态有效：取个好昵称真费劲
+2025-04-07 16:24:55,770 - INFO - 登录状态有效：取个好昵称真费劲
+2025-04-07 16:24:55,770 - INFO - 开始获取用户 501695519 的收藏夹 3473636419
+2025-04-07 16:24:55,770 - INFO - 开始获取用户 501695519 的收藏夹 3473636419
+2025-04-07 16:24:56,904 - INFO - 共找到 6 个视频，开始获取格式信息...
+2025-04-07 16:24:56,904 - INFO - 共找到 6 个视频，开始获取格式信息...
+2025-04-07 16:24:57,378 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV1uD421T7bx
+2025-04-07 16:24:57,379 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV1AcNpegEt1
+2025-04-07 16:24:57,378 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV1uD421T7bx
+2025-04-07 16:24:57,379 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV1tM411B7NA
+2025-04-07 16:24:57,379 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV1AcNpegEt1
+2025-04-07 16:24:57,379 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV1tM411B7NA
+2025-04-07 16:25:05,822 - DEBUG - you-get输出：
+site:                Bilibili
+title:               《原神》角色演示-「珐露珊：百岁珊」 (P1. 《原神》角色演示-「珐露珊：百岁珊」)
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640032
+      size:          21.3 MiB (22331947 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L150.90
+      size:          14.2 MiB (14904883 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640028
+      size:          13.7 MiB (14338643 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.08M.08.0.110.01.01.01.0
+      size:          13.5 MiB (14107743 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.64001F
+      size:          8.5 MiB (8929754 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.08M.08.0.110.01.01.01.0
+      size:          8.4 MiB (8790157 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          8.1 MiB (8465623 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.08M.08.0.110.01.01.01.0
+      size:          6.3 MiB (6570788 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          6.2 MiB (6520578 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.64001E
+      size:          3.6 MiB (3738635 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.08M.08.0.110.01.01.01.0
+      size:          3.3 MiB (3419985 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          2.9 MiB (3065610 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+
+2025-04-07 16:25:05,822 - DEBUG - you-get输出：
+site:                Bilibili
+title:               《原神》角色演示-「珐露珊：百岁珊」 (P1. 《原神》角色演示-「珐露珊：百岁珊」)
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640032
+      size:          21.3 MiB (22331947 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L150.90
+      size:          14.2 MiB (14904883 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640028
+      size:          13.7 MiB (14338643 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.08M.08.0.110.01.01.01.0
+      size:          13.5 MiB (14107743 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.64001F
+      size:          8.5 MiB (8929754 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.08M.08.0.110.01.01.01.0
+      size:          8.4 MiB (8790157 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          8.1 MiB (8465623 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.08M.08.0.110.01.01.01.0
+      size:          6.3 MiB (6570788 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          6.2 MiB (6520578 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.64001E
+      size:          3.6 MiB (3738635 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.08M.08.0.110.01.01.01.0
+      size:          3.3 MiB (3419985 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          2.9 MiB (3065610 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+
+2025-04-07 16:25:05,827 - INFO - 找到以下格式：['高清 1080P avc1.640032 (dash-flv-AVC)', '高清 1080P hev1.1.6.L150.90 (dash-flv-HEVC)', '高清 720P avc1.640028 (dash-flv720-AVC)', '高清 1080P av01.0.08M.08.0.110.01.01.01.0 (dash-flv-AV1)', '清晰 480P avc1.64001F (dash-flv480-AVC)', '高清 720P av01.0.08M.08.0.110.01.01.01.0 (dash-flv720-AV1)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '清晰 480P av01.0.08M.08.0.110.01.01.01.0 (dash-flv480-AV1)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '流畅 360P avc1.64001E (dash-flv360-AVC)', '流畅 360P av01.0.08M.08.0.110.01.01.01.0 (dash-flv360-AV1)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)']
+2025-04-07 16:25:05,827 - INFO - 找到以下格式：['高清 1080P avc1.640032 (dash-flv-AVC)', '高清 1080P hev1.1.6.L150.90 (dash-flv-HEVC)', '高清 720P avc1.640028 (dash-flv720-AVC)', '高清 1080P av01.0.08M.08.0.110.01.01.01.0 (dash-flv-AV1)', '清晰 480P avc1.64001F (dash-flv480-AVC)', '高清 720P av01.0.08M.08.0.110.01.01.01.0 (dash-flv720-AV1)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '清晰 480P av01.0.08M.08.0.110.01.01.01.0 (dash-flv480-AV1)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '流畅 360P avc1.64001E (dash-flv360-AVC)', '流畅 360P av01.0.08M.08.0.110.01.01.01.0 (dash-flv360-AV1)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)']
+2025-04-07 16:25:05,850 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV1X341177zi
+2025-04-07 16:25:05,850 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV1X341177zi
+2025-04-07 16:25:05,850 - INFO - 格式信息获取进度: 1/6
+2025-04-07 16:25:05,850 - INFO - 格式信息获取进度: 1/6
+2025-04-07 16:25:11,770 - DEBUG - you-get输出：
+site:                Bilibili
+title:               你 从 丹 东 来 ，想 吃 广 东 菜！🖐😭🤚
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640032
+      size:          20.9 MiB (21958102 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L150.90
+      size:          13.6 MiB (14272908 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640028
+      size:          13.1 MiB (13720168 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.00M.10.0.110.01.01.01.0
+      size:          12.9 MiB (13573998 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.64001F
+      size:          8.5 MiB (8864833 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          8.3 MiB (8697867 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.00M.10.0.110.01.01.01.0
+      size:          8.1 MiB (8507600 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          6.1 MiB (6443157 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.00M.10.0.110.01.01.01.0
+      size:          6.1 MiB (6428300 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.64001E
+      size:          4.1 MiB (4330793 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.00M.10.0.110.01.01.01.0
+      size:          3.2 MiB (3314170 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          3.1 MiB (3302340 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+
+2025-04-07 16:25:11,770 - DEBUG - you-get输出：
+site:                Bilibili
+title:               你 从 丹 东 来 ，想 吃 广 东 菜！🖐😭🤚
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640032
+      size:          20.9 MiB (21958102 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L150.90
+      size:          13.6 MiB (14272908 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640028
+      size:          13.1 MiB (13720168 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.00M.10.0.110.01.01.01.0
+      size:          12.9 MiB (13573998 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.64001F
+      size:          8.5 MiB (8864833 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          8.3 MiB (8697867 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.00M.10.0.110.01.01.01.0
+      size:          8.1 MiB (8507600 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          6.1 MiB (6443157 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.00M.10.0.110.01.01.01.0
+      size:          6.1 MiB (6428300 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.64001E
+      size:          4.1 MiB (4330793 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.00M.10.0.110.01.01.01.0
+      size:          3.2 MiB (3314170 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          3.1 MiB (3302340 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+
+2025-04-07 16:25:11,772 - INFO - 找到以下格式：['高清 1080P avc1.640032 (dash-flv-AVC)', '高清 1080P hev1.1.6.L150.90 (dash-flv-HEVC)', '高清 720P avc1.640028 (dash-flv720-AVC)', '高清 1080P av01.0.00M.10.0.110.01.01.01.0 (dash-flv-AV1)', '清晰 480P avc1.64001F (dash-flv480-AVC)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '高清 720P av01.0.00M.10.0.110.01.01.01.0 (dash-flv720-AV1)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '清晰 480P av01.0.00M.10.0.110.01.01.01.0 (dash-flv480-AV1)', '流畅 360P avc1.64001E (dash-flv360-AVC)', '流畅 360P av01.0.00M.10.0.110.01.01.01.0 (dash-flv360-AV1)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)']
+2025-04-07 16:25:11,772 - INFO - 找到以下格式：['高清 1080P avc1.640032 (dash-flv-AVC)', '高清 1080P hev1.1.6.L150.90 (dash-flv-HEVC)', '高清 720P avc1.640028 (dash-flv720-AVC)', '高清 1080P av01.0.00M.10.0.110.01.01.01.0 (dash-flv-AV1)', '清晰 480P avc1.64001F (dash-flv480-AVC)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '高清 720P av01.0.00M.10.0.110.01.01.01.0 (dash-flv720-AV1)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '清晰 480P av01.0.00M.10.0.110.01.01.01.0 (dash-flv480-AV1)', '流畅 360P avc1.64001E (dash-flv360-AVC)', '流畅 360P av01.0.00M.10.0.110.01.01.01.0 (dash-flv360-AV1)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)']
+2025-04-07 16:25:11,794 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV1pu4y1N7KM
+2025-04-07 16:25:11,794 - INFO - 格式信息获取进度: 2/6
+2025-04-07 16:25:11,794 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV1pu4y1N7KM
+2025-04-07 16:25:11,794 - INFO - 格式信息获取进度: 2/6
+2025-04-07 16:25:18,938 - DEBUG - you-get输出：
+site:                Bilibili
+title:               《原神》角色演示-「八 重 蔡 子」
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640032
+      size:          45.4 MiB (47623330 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L150.90
+      size:          32.5 MiB (34114451 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640028
+      size:          31.2 MiB (32718518 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.08M.08.0.110.01.01.01.0
+      size:          27.6 MiB (28972512 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.05M.08.0.110.01.01.01.0
+      size:          19.4 MiB (20380934 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          16.1 MiB (16856830 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.64001F
+      size:          15.5 MiB (16262907 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          11.4 MiB (11984517 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.04M.08.0.110.01.01.01.0
+      size:          10.2 MiB (10704517 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          7.5 MiB (7893858 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.64001E
+      size:          7.1 MiB (7486532 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.01M.08.0.110.01.01.01.0
+      size:          5.5 MiB (5747558 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+
+2025-04-07 16:25:18,938 - DEBUG - you-get输出：
+site:                Bilibili
+title:               《原神》角色演示-「八 重 蔡 子」
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640032
+      size:          45.4 MiB (47623330 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L150.90
+      size:          32.5 MiB (34114451 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640028
+      size:          31.2 MiB (32718518 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.08M.08.0.110.01.01.01.0
+      size:          27.6 MiB (28972512 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.05M.08.0.110.01.01.01.0
+      size:          19.4 MiB (20380934 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          16.1 MiB (16856830 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.64001F
+      size:          15.5 MiB (16262907 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          11.4 MiB (11984517 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.04M.08.0.110.01.01.01.0
+      size:          10.2 MiB (10704517 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          7.5 MiB (7893858 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.64001E
+      size:          7.1 MiB (7486532 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.01M.08.0.110.01.01.01.0
+      size:          5.5 MiB (5747558 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+
+2025-04-07 16:25:18,941 - INFO - 找到以下格式：['高清 1080P avc1.640032 (dash-flv-AVC)', '高清 1080P hev1.1.6.L150.90 (dash-flv-HEVC)', '高清 720P avc1.640028 (dash-flv720-AVC)', '高清 1080P av01.0.08M.08.0.110.01.01.01.0 (dash-flv-AV1)', '高清 720P av01.0.05M.08.0.110.01.01.01.0 (dash-flv720-AV1)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '清晰 480P avc1.64001F (dash-flv480-AVC)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '清晰 480P av01.0.04M.08.0.110.01.01.01.0 (dash-flv480-AV1)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)', '流畅 360P avc1.64001E (dash-flv360-AVC)', '流畅 360P av01.0.01M.08.0.110.01.01.01.0 (dash-flv360-AV1)']
+2025-04-07 16:25:18,941 - INFO - 找到以下格式：['高清 1080P avc1.640032 (dash-flv-AVC)', '高清 1080P hev1.1.6.L150.90 (dash-flv-HEVC)', '高清 720P avc1.640028 (dash-flv720-AVC)', '高清 1080P av01.0.08M.08.0.110.01.01.01.0 (dash-flv-AV1)', '高清 720P av01.0.05M.08.0.110.01.01.01.0 (dash-flv720-AV1)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '清晰 480P avc1.64001F (dash-flv480-AVC)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '清晰 480P av01.0.04M.08.0.110.01.01.01.0 (dash-flv480-AV1)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)', '流畅 360P avc1.64001E (dash-flv360-AVC)', '流畅 360P av01.0.01M.08.0.110.01.01.01.0 (dash-flv360-AV1)']
+2025-04-07 16:25:18,966 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV11u4y1B71e
+2025-04-07 16:25:18,966 - INFO - 格式信息获取进度: 3/6
+2025-04-07 16:25:18,966 - INFO - 获取视频格式信息：https://www.bilibili.com/video/BV11u4y1B71e
+2025-04-07 16:25:18,966 - INFO - 格式信息获取进度: 3/6
+2025-04-07 16:25:20,820 - DEBUG - you-get输出：
+site:                Bilibili
+title:               《原神》角色演示-「芙宁娜：全程跑调」
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640033
+      size:          75.5 MiB (79116407 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640033
+      size:          44.1 MiB (46268671 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L150.90
+      size:          26.0 MiB (27266484 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.640033
+      size:          25.8 MiB (27090462 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.00M.10.0.110.01.01.01.0
+      size:          25.8 MiB (27027330 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          19.1 MiB (19995104 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.00M.10.0.110.01.01.01.0
+      size:          18.0 MiB (18894494 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          16.5 MiB (17266001 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.00M.10.0.110.01.01.01.0
+      size:          16.3 MiB (17140732 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.640033
+      size:          10.6 MiB (11151532 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          8.2 MiB (8599040 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.00M.10.0.110.01.01.01.0
+      size:          8.2 MiB (8551949 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+
+2025-04-07 16:25:20,820 - DEBUG - you-get输出：
+site:                Bilibili
+title:               《原神》角色演示-「芙宁娜：全程跑调」
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640033
+      size:          75.5 MiB (79116407 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640033
+      size:          44.1 MiB (46268671 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L150.90
+      size:          26.0 MiB (27266484 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.640033
+      size:          25.8 MiB (27090462 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.00M.10.0.110.01.01.01.0
+      size:          25.8 MiB (27027330 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          19.1 MiB (19995104 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.00M.10.0.110.01.01.01.0
+      size:          18.0 MiB (18894494 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          16.5 MiB (17266001 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.00M.10.0.110.01.01.01.0
+      size:          16.3 MiB (17140732 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.640033
+      size:          10.6 MiB (11151532 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          8.2 MiB (8599040 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.00M.10.0.110.01.01.01.0
+      size:          8.2 MiB (8551949 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+
+2025-04-07 16:25:20,824 - INFO - 找到以下格式：['高清 1080P avc1.640033 (dash-flv-AVC)', '高清 720P avc1.640033 (dash-flv720-AVC)', '高清 1080P hev1.1.6.L150.90 (dash-flv-HEVC)', '清晰 480P avc1.640033 (dash-flv480-AVC)', '高清 1080P av01.0.00M.10.0.110.01.01.01.0 (dash-flv-AV1)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '高清 720P av01.0.00M.10.0.110.01.01.01.0 (dash-flv720-AV1)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '清晰 480P av01.0.00M.10.0.110.01.01.01.0 (dash-flv480-AV1)', '流畅 360P avc1.640033 (dash-flv360-AVC)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)', '流畅 360P av01.0.00M.10.0.110.01.01.01.0 (dash-flv360-AV1)']
+2025-04-07 16:25:20,824 - INFO - 找到以下格式：['高清 1080P avc1.640033 (dash-flv-AVC)', '高清 720P avc1.640033 (dash-flv720-AVC)', '高清 1080P hev1.1.6.L150.90 (dash-flv-HEVC)', '清晰 480P avc1.640033 (dash-flv480-AVC)', '高清 1080P av01.0.00M.10.0.110.01.01.01.0 (dash-flv-AV1)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '高清 720P av01.0.00M.10.0.110.01.01.01.0 (dash-flv720-AV1)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '清晰 480P av01.0.00M.10.0.110.01.01.01.0 (dash-flv480-AV1)', '流畅 360P avc1.640033 (dash-flv360-AVC)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)', '流畅 360P av01.0.00M.10.0.110.01.01.01.0 (dash-flv360-AV1)']
+2025-04-07 16:25:20,845 - INFO - 格式信息获取进度: 4/6
+2025-04-07 16:25:20,845 - INFO - 格式信息获取进度: 4/6
+2025-04-07 16:25:23,594 - DEBUG - you-get输出：
+site:                Bilibili
+title:               不眠之夜，但全程一个调
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640032
+      size:          28.3 MiB (29635259 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640028
+      size:          18.9 MiB (19792762 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.00M.10.0.110.01.01.01.0
+      size:          15.4 MiB (16127074 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L120.90
+      size:          14.0 MiB (14661785 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.64001F
+      size:          11.1 MiB (11675745 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.00M.10.0.110.01.01.01.0
+      size:          9.1 MiB (9545541 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          8.6 MiB (9030667 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.00M.10.0.110.01.01.01.0
+      size:          6.4 MiB (6743830 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          6.4 MiB (6663300 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.64001E
+      size:          5.3 MiB (5609051 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.00M.10.0.110.01.01.01.0
+      size:          3.4 MiB (3552704 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          3.3 MiB (3503415 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+
+2025-04-07 16:25:23,594 - DEBUG - you-get输出：
+site:                Bilibili
+title:               不眠之夜，但全程一个调
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640032
+      size:          28.3 MiB (29635259 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640028
+      size:          18.9 MiB (19792762 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.00M.10.0.110.01.01.01.0
+      size:          15.4 MiB (16127074 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L120.90
+      size:          14.0 MiB (14661785 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.64001F
+      size:          11.1 MiB (11675745 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.00M.10.0.110.01.01.01.0
+      size:          9.1 MiB (9545541 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          8.6 MiB (9030667 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.00M.10.0.110.01.01.01.0
+      size:          6.4 MiB (6743830 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          6.4 MiB (6663300 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.64001E
+      size:          5.3 MiB (5609051 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.00M.10.0.110.01.01.01.0
+      size:          3.4 MiB (3552704 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          3.3 MiB (3503415 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+
+2025-04-07 16:25:23,597 - INFO - 找到以下格式：['高清 1080P avc1.640032 (dash-flv-AVC)', '高清 720P avc1.640028 (dash-flv720-AVC)', '高清 1080P av01.0.00M.10.0.110.01.01.01.0 (dash-flv-AV1)', '高清 1080P hev1.1.6.L120.90 (dash-flv-HEVC)', '清晰 480P avc1.64001F (dash-flv480-AVC)', '高清 720P av01.0.00M.10.0.110.01.01.01.0 (dash-flv720-AV1)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '清晰 480P av01.0.00M.10.0.110.01.01.01.0 (dash-flv480-AV1)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '流畅 360P avc1.64001E (dash-flv360-AVC)', '流畅 360P av01.0.00M.10.0.110.01.01.01.0 (dash-flv360-AV1)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)']
+2025-04-07 16:25:23,597 - INFO - 找到以下格式：['高清 1080P avc1.640032 (dash-flv-AVC)', '高清 720P avc1.640028 (dash-flv720-AVC)', '高清 1080P av01.0.00M.10.0.110.01.01.01.0 (dash-flv-AV1)', '高清 1080P hev1.1.6.L120.90 (dash-flv-HEVC)', '清晰 480P avc1.64001F (dash-flv480-AVC)', '高清 720P av01.0.00M.10.0.110.01.01.01.0 (dash-flv720-AV1)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '清晰 480P av01.0.00M.10.0.110.01.01.01.0 (dash-flv480-AV1)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '流畅 360P avc1.64001E (dash-flv360-AVC)', '流畅 360P av01.0.00M.10.0.110.01.01.01.0 (dash-flv360-AV1)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)']
+2025-04-07 16:25:23,617 - INFO - 格式信息获取进度: 5/6
+2025-04-07 16:25:23,617 - INFO - 格式信息获取进度: 5/6
+2025-04-07 16:25:27,185 - DEBUG - you-get输出：
+site:                Bilibili
+title:               【星穹铁道】卡芙卡PV——「戏剧性漏气」
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640032
+      size:          31.6 MiB (33108996 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640028
+      size:          20.9 MiB (21885980 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.08M.08.0.110.01.01.01.0
+      size:          16.0 MiB (16770122 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L150.90
+      size:          16.0 MiB (16735853 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.64001F
+      size:          11.9 MiB (12479369 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          9.0 MiB (9392054 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.08M.08.0.110.01.01.01.0
+      size:          8.0 MiB (8372063 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          6.4 MiB (6702224 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.64001E
+      size:          5.9 MiB (6210644 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.08M.08.0.110.01.01.01.0
+      size:          5.0 MiB (5212436 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          3.8 MiB (4018563 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.08M.08.0.110.01.01.01.0
+      size:          3.1 MiB (3295462 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+
+2025-04-07 16:25:27,185 - DEBUG - you-get输出：
+site:                Bilibili
+title:               【星穹铁道】卡芙卡PV——「戏剧性漏气」
+streams:             # Available quality and codecs
+    [ DASH ] ____________________________________
+    - format:        dash-flv-AVC
+      container:     mp4
+      quality:       高清 1080P avc1.640032
+      size:          31.6 MiB (33108996 bytes)
+    # download-with: you-get --format=dash-flv-AVC [URL]
+
+    - format:        dash-flv720-AVC
+      container:     mp4
+      quality:       高清 720P avc1.640028
+      size:          20.9 MiB (21885980 bytes)
+    # download-with: you-get --format=dash-flv720-AVC [URL]
+
+    - format:        dash-flv-AV1
+      container:     mp4
+      quality:       高清 1080P av01.0.08M.08.0.110.01.01.01.0
+      size:          16.0 MiB (16770122 bytes)
+    # download-with: you-get --format=dash-flv-AV1 [URL]
+
+    - format:        dash-flv-HEVC
+      container:     mp4
+      quality:       高清 1080P hev1.1.6.L150.90
+      size:          16.0 MiB (16735853 bytes)
+    # download-with: you-get --format=dash-flv-HEVC [URL]
+
+    - format:        dash-flv480-AVC
+      container:     mp4
+      quality:       清晰 480P avc1.64001F
+      size:          11.9 MiB (12479369 bytes)
+    # download-with: you-get --format=dash-flv480-AVC [URL]
+
+    - format:        dash-flv720-HEVC
+      container:     mp4
+      quality:       高清 720P hev1.1.6.L120.90
+      size:          9.0 MiB (9392054 bytes)
+    # download-with: you-get --format=dash-flv720-HEVC [URL]
+
+    - format:        dash-flv720-AV1
+      container:     mp4
+      quality:       高清 720P av01.0.08M.08.0.110.01.01.01.0
+      size:          8.0 MiB (8372063 bytes)
+    # download-with: you-get --format=dash-flv720-AV1 [URL]
+
+    - format:        dash-flv480-HEVC
+      container:     mp4
+      quality:       清晰 480P hev1.1.6.L120.90
+      size:          6.4 MiB (6702224 bytes)
+    # download-with: you-get --format=dash-flv480-HEVC [URL]
+
+    - format:        dash-flv360-AVC
+      container:     mp4
+      quality:       流畅 360P avc1.64001E
+      size:          5.9 MiB (6210644 bytes)
+    # download-with: you-get --format=dash-flv360-AVC [URL]
+
+    - format:        dash-flv480-AV1
+      container:     mp4
+      quality:       清晰 480P av01.0.08M.08.0.110.01.01.01.0
+      size:          5.0 MiB (5212436 bytes)
+    # download-with: you-get --format=dash-flv480-AV1 [URL]
+
+    - format:        dash-flv360-HEVC
+      container:     mp4
+      quality:       流畅 360P hev1.1.6.L120.90
+      size:          3.8 MiB (4018563 bytes)
+    # download-with: you-get --format=dash-flv360-HEVC [URL]
+
+    - format:        dash-flv360-AV1
+      container:     mp4
+      quality:       流畅 360P av01.0.08M.08.0.110.01.01.01.0
+      size:          3.1 MiB (3295462 bytes)
+    # download-with: you-get --format=dash-flv360-AV1 [URL]
+
+
+2025-04-07 16:25:27,187 - INFO - 找到以下格式：['高清 1080P avc1.640032 (dash-flv-AVC)', '高清 720P avc1.640028 (dash-flv720-AVC)', '高清 1080P av01.0.08M.08.0.110.01.01.01.0 (dash-flv-AV1)', '高清 1080P hev1.1.6.L150.90 (dash-flv-HEVC)', '清晰 480P avc1.64001F (dash-flv480-AVC)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '高清 720P av01.0.08M.08.0.110.01.01.01.0 (dash-flv720-AV1)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '流畅 360P avc1.64001E (dash-flv360-AVC)', '清晰 480P av01.0.08M.08.0.110.01.01.01.0 (dash-flv480-AV1)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)', '流畅 360P av01.0.08M.08.0.110.01.01.01.0 (dash-flv360-AV1)']
+2025-04-07 16:25:27,187 - INFO - 找到以下格式：['高清 1080P avc1.640032 (dash-flv-AVC)', '高清 720P avc1.640028 (dash-flv720-AVC)', '高清 1080P av01.0.08M.08.0.110.01.01.01.0 (dash-flv-AV1)', '高清 1080P hev1.1.6.L150.90 (dash-flv-HEVC)', '清晰 480P avc1.64001F (dash-flv480-AVC)', '高清 720P hev1.1.6.L120.90 (dash-flv720-HEVC)', '高清 720P av01.0.08M.08.0.110.01.01.01.0 (dash-flv720-AV1)', '清晰 480P hev1.1.6.L120.90 (dash-flv480-HEVC)', '流畅 360P avc1.64001E (dash-flv360-AVC)', '清晰 480P av01.0.08M.08.0.110.01.01.01.0 (dash-flv480-AV1)', '流畅 360P hev1.1.6.L120.90 (dash-flv360-HEVC)', '流畅 360P av01.0.08M.08.0.110.01.01.01.0 (dash-flv360-AV1)']
+2025-04-07 16:25:27,206 - INFO - 格式信息获取进度: 6/6
+2025-04-07 16:25:27,206 - INFO - 格式信息获取进度: 6/6
+2025-04-07 16:25:27,248 - INFO - 所有视频格式获取完成
+2025-04-07 16:25:27,248 - INFO - 所有视频格式获取完成
