@@ -44,11 +44,15 @@ class Bili_fav:
         # 添加线程池
         self.format_pool = ThreadPoolExecutor(max_workers=3)
 
+        # 确保config目录存在
+        if not os.path.exists('config'):
+            os.makedirs('config')
+            
         # 文件路径
         self.you_get_path = 'you-get'
-        self.cookies_file = 'cookies.txt'
-        self.config_file = 'config.json'
-        self.formats_cache_file = 'formats_cache.json'  # 添加格式缓存文件
+        self.cookies_file = os.path.join('config', 'cookies.txt')
+        self.config_file = os.path.join('config', 'config.json')
+        self.formats_cache_file = os.path.join('config', 'formats_cache.json')  # 添加格式缓存文件
         
         # 加载格式缓存
         self.formats_cache = self.load_formats_cache()
@@ -59,11 +63,12 @@ class Bili_fav:
     def setup_logger(self):
         """设置日志记录器"""
         # 创建logs目录（如果不存在）
-        if not os.path.exists('logs'):
-            os.makedirs('logs')
+        logs_dir = os.path.join('config', 'logs')
+        if not os.path.exists(logs_dir):
+            os.makedirs(logs_dir)
             
         # 创建日志文件名（使用当前时间）
-        log_filename = f'logs/download_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
+        log_filename = os.path.join(logs_dir, f'download_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
         
         # 配置日志记录器
         logging.basicConfig(
@@ -164,14 +169,6 @@ class Bili_fav:
             messagebox.showerror("错误", str(e))
             return False
 
-    # report spider results 显示爬虫结果
-    def report(self):
-        print("已搜索到%s部视频：" % len(self.video_ids))
-        i = 1
-        for title in self.video_titles:
-            print("%s."%i + title)
-            i += 1
-    
     def check_downloaded_videos(self, output_dir):
         """检查视频是否已经下载过"""
         downloaded = []
@@ -208,8 +205,7 @@ class Bili_fav:
                 you_get_path = 'you-get'
         
         # 创建cookies.txt文件
-        cookies_file = "cookies.txt"
-        with open(cookies_file, "w", encoding="utf-8") as f:
+        with open(self.cookies_file, "w", encoding="utf-8") as f:
             f.write(f".bilibili.com\tTRUE\t/\tFALSE\t1999999999\tSESSDATA\t{self.headers['Cookie'].split('SESSDATA=')[1].split(';')[0]}\n")
             f.write(f".bilibili.com\tTRUE\t/\tFALSE\t1999999999\tbili_jct\t{self.headers['Cookie'].split('bili_jct=')[1].split(';')[0]}\n")
             f.write(f".bilibili.com\tTRUE\t/\tFALSE\t1999999999\tbuvid3\t{self.headers['Cookie'].split('buvid3=')[1].split(';')[0]}\n")
@@ -246,7 +242,7 @@ class Bili_fav:
                 if self.cancelled:
                     break
                     
-            self.download_video(video_id, title, i, output_dir, you_get_path, cookies_file)
+            self.download_video(video_id, title, i, output_dir, you_get_path, self.cookies_file)
             
             # 更新进度
             if hasattr(self, 'gui_callback'):
@@ -400,17 +396,6 @@ class Bili_fav:
                 return f"{size:.1f}{unit}"
             size /= 1024
         return f"{size:.1f}TB"
-
-    def _format_time(self, seconds):
-        """格式化时间"""
-        if seconds < 60:
-            return f"{int(seconds)}秒"
-        elif seconds < 3600:
-            return f"{int(seconds/60)}分{int(seconds%60)}秒"
-        else:
-            hours = int(seconds/3600)
-            minutes = int((seconds%3600)/60)
-            return f"{hours}时{minutes}分"
 
     def pause_download(self, video_id=None):
         """暂停下载"""
@@ -798,7 +783,8 @@ class Bili_fav:
             }
 
             # 将信息保存到info.json
-            with open('info.json','w+') as f:
+            info_path = os.path.join('config', 'info.json')
+            with open(info_path, 'w+') as f:
                 f.write(json.dumps(saveInfo,ensure_ascii=False,separators=(',',':')))
 
             # 从cookie_info中提取cookie信息
@@ -830,10 +816,11 @@ class Bili_fav:
     def refresh_login(self):
         """刷新登录凭证"""
         try:
-            if not os.path.exists('info.json'):
+            info_path = os.path.join('config', 'info.json')
+            if not os.path.exists(info_path):
                 return False
 
-            saveInfo = json.loads(open('info.json').read())
+            saveInfo = json.loads(open(info_path).read())
 
             rsp_data = requests.post("https://passport.bilibili.com/api/v2/oauth2/refresh_token",
                 params=self.tvsign({
@@ -854,7 +841,7 @@ class Bili_fav:
                     'token_info':rsp_data['data']['token_info'],
                     'cookie_info':rsp_data['data']['cookie_info']
                 }
-                with open('info.json','w+') as f:
+                with open(info_path, 'w+') as f:
                     f.write(json.dumps(saveInfo,ensure_ascii=False,separators=(',',':')))
 
                 # 更新Cookie
@@ -887,7 +874,10 @@ class Bili_fav:
 
 class Config:
     def __init__(self):
-        self.config_file = "config.json"
+        # 确保config目录存在
+        if not os.path.exists('config'):
+            os.makedirs('config')
+        self.config_file = os.path.join("config", "config.json")
         self.default_config = {
             "last_user_id": "",
             "last_favorites_id": "",
@@ -952,11 +942,15 @@ class BiliFavGUI:
         # 初始化线程池
         self.format_pool = ThreadPoolExecutor(max_workers=3)
         
+        # 确保config目录存在
+        if not os.path.exists('config'):
+            os.makedirs('config')
+            
         # 文件路径
         self.you_get_path = 'you-get'
-        self.cookies_file = 'cookies.txt'
-        self.config_file = 'config.json'
-        self.formats_cache_file = 'formats_cache.json'  # 添加格式缓存文件
+        self.cookies_file = os.path.join('config', 'cookies.txt')
+        self.config_file = os.path.join('config', 'config.json')
+        self.formats_cache_file = os.path.join('config', 'formats_cache.json')  # 添加格式缓存文件
         
         # 下载器相关属性
         self.downloader = None
@@ -1023,10 +1017,11 @@ class BiliFavGUI:
         self.logger.addHandler(text_handler)
         
         # 添加文件处理器
-        if not os.path.exists('logs'):
-            os.makedirs('logs')
+        logs_dir = os.path.join('config', 'logs')
+        if not os.path.exists(logs_dir):
+            os.makedirs(logs_dir)
         file_handler = logging.FileHandler(
-            f'logs/bilibili_fav_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log',
+            os.path.join(logs_dir, f'bilibili_fav_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'),
             encoding='utf-8'
         )
         file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
@@ -1285,7 +1280,8 @@ class BiliFavGUI:
         """执行登录的线程"""
         try:
             # 尝试刷新登录
-            if os.path.exists('info.json'):
+            info_path = os.path.join('config', 'info.json')
+            if os.path.exists(info_path):
                 self.logger.info("尝试刷新登录状态...")
                 if self.bili_fav.refresh_login():
                     self.logger.info("登录刷新成功!")
@@ -1313,7 +1309,8 @@ class BiliFavGUI:
         
         # 从info.json读取登录信息
         try:
-            with open('info.json', 'r', encoding='utf-8') as f:
+            info_path = os.path.join('config', 'info.json')
+            with open(info_path, 'r', encoding='utf-8') as f:
                 login_info = json.load(f)
                 cookies = {}
                 for cookie in login_info['cookie_info']['cookies']:
@@ -1325,7 +1322,8 @@ class BiliFavGUI:
                 self.buvid3.set(cookies.get('buvid3', ''))
                 
                 # 保存到cookies文件
-                with open('bili_cookies.json', 'w', encoding='utf-8') as f:
+                bili_cookies_path = os.path.join('config', 'bili_cookies.json')
+                with open(bili_cookies_path, 'w', encoding='utf-8') as f:
                     json.dump(cookies, f, ensure_ascii=False, indent=4)
                 
                 # 创建Netscape格式的cookies文件
@@ -1466,7 +1464,8 @@ class BiliFavGUI:
             
             # 读取cookie信息
             try:
-                with open('bili_cookies.json', 'r', encoding='utf-8') as f:
+                bili_cookies_path = os.path.join('config', 'bili_cookies.json')
+                with open(bili_cookies_path, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
                     if not content:
                         raise ValueError("Cookie文件为空")
@@ -1952,6 +1951,16 @@ class BiliFavGUI:
             # 清除cookie文件
             if os.path.exists(self.cookies_file):
                 os.remove(self.cookies_file)
+                
+            # 清除bili_cookies.json文件
+            bili_cookies_path = os.path.join('config', 'bili_cookies.json')
+            if os.path.exists(bili_cookies_path):
+                os.remove(bili_cookies_path)
+                
+            # 清除info.json文件
+            info_path = os.path.join('config', 'info.json')
+            if os.path.exists(info_path):
+                os.remove(info_path)
             
             # 清除cookie数据
             self.cookies = None
@@ -2315,7 +2324,8 @@ class BiliFavGUI:
             
             if content['code'] == 0:
                 # 登录有效，保存cookie文件
-                with open('bili_cookies.json', 'w', encoding='utf-8') as f:
+                bili_cookies_path = os.path.join('config', 'bili_cookies.json')
+                with open(bili_cookies_path, 'w', encoding='utf-8') as f:
                     json.dump(cookies, f, ensure_ascii=False, indent=4)
                 self.create_netscape_cookies(cookies)
                 
@@ -2444,7 +2454,7 @@ class BiliFavGUI:
     def create_netscape_cookies(self, cookies):
         """创建Netscape格式的cookies文件"""
         try:
-            with open('cookies.txt', 'w', encoding='utf-8') as f:
+            with open(self.cookies_file, 'w', encoding='utf-8') as f:
                 for name, value in cookies.items():
                     f.write(f".bilibili.com\tTRUE\t/\tFALSE\t1999999999\t{name}\t{value}\n")
             self.logger.info("成功创建Netscape格式的cookies文件")
