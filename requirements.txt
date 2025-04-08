@@ -1,9 +1,5 @@
-requests==2.31.0
-urllib3==2.0.7
-pillow==10.0.0
-qrcode==7.4.2
-qrcode_terminal==0.8
-certifi
-chardet
-idna
-charset_normalizer 
+requests>=2.31.0
+qrcode>=7.4.2
+qrcode-terminal>=0.1.0
+pillow>=10.0.0
+you-get>=0.4.1650

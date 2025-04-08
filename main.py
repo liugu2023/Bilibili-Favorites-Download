@@ -192,71 +192,8 @@ class Bili_fav:
     
     # 下载视频
     def download_videos(self, output_dir = '', max_workers = 1):
-        i = 1
-        # 获取当前 Python 解释器的路径
-        python_path = sys.executable
-        # 获取 you-get 的路径
-        you_get_path = os.path.join(os.path.dirname(python_path), "Scripts", "you-get.exe")
-        if not os.path.exists(you_get_path):
-            # 如果 Scripts 目录下没有，尝试在 Python 安装目录下查找
-            you_get_path = os.path.join(os.path.dirname(python_path), "you-get.exe")
-            if not os.path.exists(you_get_path):
-                # 如果还是找不到，使用默认的 you-get 命令
-                you_get_path = 'you-get'
-        
-        # 创建cookies.txt文件
-        with open(self.cookies_file, "w", encoding="utf-8") as f:
-            f.write(f".bilibili.com\tTRUE\t/\tFALSE\t1999999999\tSESSDATA\t{self.headers['Cookie'].split('SESSDATA=')[1].split(';')[0]}\n")
-            f.write(f".bilibili.com\tTRUE\t/\tFALSE\t1999999999\tbili_jct\t{self.headers['Cookie'].split('bili_jct=')[1].split(';')[0]}\n")
-            f.write(f".bilibili.com\tTRUE\t/\tFALSE\t1999999999\tbuvid3\t{self.headers['Cookie'].split('buvid3=')[1].split(';')[0]}\n")
-        
-        # 记录下载失败的视频
-        failed_downloads = []
-        
-        # 检查已下载的视频
-        if output_dir:
-            downloaded = self.check_downloaded_videos(output_dir)
-            videos_to_download = [(vid, title) for vid, title in zip(self.video_ids, self.video_titles) 
-                                if vid not in downloaded]
-        else:
-            videos_to_download = list(zip(self.video_ids, self.video_titles))
-        
-        if not videos_to_download:
-            print("所有视频都已下载完成！")
-            return
-        
-        print(f"共找到 {len(videos_to_download)} 个未下载的视频")
-        
-        # 如果有GUI回调，先更新下载列表
-        if hasattr(self, 'gui_callback'):
-            for i, (video_id, title) in enumerate(videos_to_download, 1):
-                self.gui_callback('add_item', i, title, video_id)
-        
-        # 单线程下载
-        for i, (video_id, title) in enumerate(videos_to_download, 1):
-            if self.cancelled:
-                break
-                
-            while self.paused:
-                time.sleep(1)
-                if self.cancelled:
-                    break
-                    
-            self.download_video(video_id, title, i, output_dir, you_get_path, self.cookies_file)
-            
-            # 更新进度
-            if hasattr(self, 'gui_callback'):
-                progress = (i / len(videos_to_download)) * 100
-                self.gui_callback('update_progress', progress)
-        
-        # 下载完成后的处理
-        if hasattr(self, 'gui_callback'):
-            if self.cancelled:
-                self.gui_callback('download_cancelled')
-            else:
-                self.gui_callback('download_completed')
-        
-        print("所有视频下载完成！")
+        """下载视频（已废弃，使用新的下载队列机制）"""
+        pass
 
     def _clean_incomplete_files(self, output_dir, title):
         """清理不完整的下载文件"""
@@ -302,92 +239,8 @@ class Bili_fav:
         return total_size
 
     def _monitor_download_progress(self, index, video_id, output_dir, initial_size, start_time):
-        """监控下载进度"""
-        self.stop_monitor = False
-        last_size = initial_size
-        last_time = start_time
-        total_size = 0  # 用于存储总大小
-        update_interval = 0.2  # 更新频率为0.2秒一次
-        
-        # 获取文件总大小（仅在第一次获取）
-        try:
-            # 使用B站API获取视频信息
-            api_url = f'https://api.bilibili.com/x/web-interface/view?bvid={video_id}'
-            request = urllib.request.Request(api_url, headers=self.headers)
-            response = urllib.request.urlopen(request)
-            data = json.loads(response.read().decode('utf-8'))
-            
-            if data['code'] == 0:
-                # 获取所有视频分P的大小总和
-                pages = data['data']['pages']
-                total_size = sum(page['size'] for page in pages)
-                print(f"获取到视频总大小: {self._format_size(total_size)}")
-            else:
-                print(f"获取视频信息失败: {data['message']}")
-                
-        except Exception as e:
-            print(f"获取视频大小失败：{str(e)}")
-            total_size = 0
-        
-        last_percentage = 0  # 记录上一次的进度百分比
-        
-        while not self.stop_monitor:
-            try:
-                current_size = self._get_dir_size(output_dir)
-                current_time = time.time()
-                
-                # 计算速度 (bytes/s)
-                time_diff = current_time - last_time
-                size_diff = current_size - last_size
-                speed = size_diff / time_diff if time_diff > 0 else 0
-                
-                # 计算下载进度
-                downloaded_size = current_size - initial_size
-                if total_size > 0:
-                    percentage = int((downloaded_size * 100) / total_size)
-                    
-                    # 确保进度不会后退或跳跃太大
-                    if percentage < last_percentage:
-                        percentage = last_percentage
-                    elif percentage - last_percentage > 5:  # 限制单次进度增长
-                        percentage = last_percentage + 5
-                    
-                    # 确保进度在合理范围内
-                    if percentage > 100:
-                        percentage = 99
-                    elif percentage < 0:
-                        percentage = 0
-                        
-                    # 检查下载是否完成
-                    if percentage >= 99 and not size_diff and downloaded_size >= total_size * 0.99:
-                        progress = "100%"
-                        speed_str = "0B/s"
-                        if hasattr(self, 'gui_callback'):
-                            self.gui_callback('update_status', index, "已完成", progress, speed_str)
-                        break
-                    
-                    progress = f"{percentage}%"
-                    last_percentage = percentage  # 更新上一次的进度
-                else:
-                    # 如果无法获取总大小，使用增量显示进度
-                    progress = "0%"
-                
-                # 格式化速度显示
-                speed_str = self._format_size(speed) + "/s"
-                
-                # 更新GUI显示
-                if hasattr(self, 'gui_callback'):
-                    self.gui_callback('update_status', index, "正在下载", progress, speed_str)
-                
-                # 更新参考值
-                last_size = current_size
-                last_time = current_time
-                
-                time.sleep(update_interval)
-                
-            except Exception as e:
-                print(f"监控进度出错：{str(e)}")
-                time.sleep(update_interval)
+        """监控下载进度（已废弃，使用新的进度监控机制）"""
+        pass
 
     def _format_size(self, size):
         """格式化文件大小"""
@@ -398,51 +251,16 @@ class Bili_fav:
         return f"{size:.1f}TB"
 
     def pause_download(self, video_id=None):
-        """暂停下载"""
-        if video_id:
-            # 暂停单个视频
-            for thread_id, vid in list(self.current_downloads.items()):
-                if vid == video_id:
-                    self.paused = True
-                    self.logger.info(f"暂停下载视频：{video_id}")
-                    if hasattr(self, 'gui_callback'):
-                        self.gui_callback('update_status', thread_id, "已暂停", "-", "-")
-        else:
-            # 暂停所有下载
-            self.paused = True
-            self.logger.info("暂停所有下载")
-            if hasattr(self, 'gui_callback'):
-                for thread_id in self.current_downloads:
-                    self.gui_callback('update_status', thread_id, "已暂停", "-", "-")
+        """暂停下载（已废弃，使用新的暂停机制）"""
+        pass
 
     def resume_download(self, video_id=None):
-        """继续下载"""
-        if video_id:
-            # 继续单个视频
-            for thread_id, vid in list(self.current_downloads.items()):
-                if vid == video_id:
-                    self.paused = False
-                    self.logger.info(f"继续下载视频：{video_id}")
-                    if hasattr(self, 'gui_callback'):
-                        self.gui_callback('update_status', thread_id, "下载中", "0%", "0B/s")
-        else:
-            # 继续所有下载
-            self.paused = False
-            self.logger.info("继续所有下载")
-            if hasattr(self, 'gui_callback'):
-                for thread_id in self.current_downloads:
-                    self.gui_callback('update_status', thread_id, "下载中", "0%", "0B/s")
+        """继续下载（已废弃，使用新的继续机制）"""
+        pass
 
     def cancel_download(self, video_id=None):
-        if video_id:
-            # 取消单个视频
-            for thread_id, vid in list(self.current_downloads.items()):
-                if vid == video_id:
-                    del self.current_downloads[thread_id]
-        else:
-            # 取消所有下载
-            self.cancelled = True
-            self.current_downloads.clear()
+        """取消下载（已废弃，使用新的取消机制）"""
+        pass
 
     def download_video(self, video_id, title, index, output_dir, you_get_path, cookies_file):
         """下载单个视频"""
@@ -932,12 +750,17 @@ class BiliFavGUI:
         # 初始化属性
         self.user_id = tk.StringVar()
         self.favorites_id = tk.StringVar()
+        self.favorites_url = tk.StringVar()
         self.sessdata = tk.StringVar()
         self.bili_jct = tk.StringVar()
         self.buvid3 = tk.StringVar()
         self.output_dir_var = tk.StringVar()
         self.download_danmaku = tk.BooleanVar(value=False)
         self.max_workers = tk.StringVar(value="3")  # 默认3个并行下载
+        
+        # 初始化排序相关属性
+        self.sort_column = None  # 当前排序列
+        self.sort_reverse = False  # 是否降序排序
         
         # 初始化线程池
         self.format_pool = ThreadPoolExecutor(max_workers=3)
@@ -973,6 +796,13 @@ class BiliFavGUI:
         # 配置窗口
         self.root.geometry("800x600")
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+        
+        # 添加登录状态检查定时器
+        self.login_check_timer = None
+        self.start_login_check_timer()
+        
+        # 添加登录状态过期时间
+        self.login_expire_time = None
 
     def setup_logger(self):
         """设置日志处理器"""
@@ -1120,15 +950,17 @@ class BiliFavGUI:
         self.login_btn = ttk.Button(login_frame, text="登录", command=self.login)
         self.login_btn.grid(row=1, column=0, columnspan=2, pady=5)
         
+        # 添加退出登录按钮
+        self.logout_btn = ttk.Button(login_frame, text="退出登录", command=self.logout, state="disabled")
+        self.logout_btn.grid(row=2, column=0, columnspan=2, pady=5)
+        
         # 收藏夹信息区域
         fav_frame = ttk.LabelFrame(main_frame, text="收藏夹信息")
         fav_frame.grid(row=1, column=0, sticky='ew', padx=5, pady=5)
         
-        ttk.Label(fav_frame, text="用户ID:").grid(row=0, column=0, sticky='w', padx=5, pady=2)
-        ttk.Entry(fav_frame, textvariable=self.user_id).grid(row=0, column=1, sticky='ew', padx=5)
-        
-        ttk.Label(fav_frame, text="收藏夹ID:").grid(row=1, column=0, sticky='w', padx=5, pady=2)
-        ttk.Entry(fav_frame, textvariable=self.favorites_id).grid(row=1, column=1, sticky='ew', padx=5)
+        ttk.Label(fav_frame, text="收藏夹链接:").grid(row=0, column=0, sticky='w', padx=5, pady=2)
+        ttk.Entry(fav_frame, textvariable=self.favorites_url).grid(row=0, column=1, sticky='ew', padx=5)
+        ttk.Label(fav_frame, text="示例: https://space.bilibili.com/12345678/favlist?fid=87654321").grid(row=1, column=0, columnspan=2, sticky='w', padx=5, pady=2)
         
         # 下载设置区域
         settings_frame = ttk.LabelFrame(main_frame, text="下载设置")
@@ -1172,7 +1004,7 @@ class BiliFavGUI:
         
         self.download_list = ttk.Treeview(
             list_frame,
-            columns=('序号', '标题', '状态', '可用格式', '进度', '速度', '操作', 'video_id'),
+            columns=('序号', '标题', '状态', '可用格式', '进度', '速度', 'BV号', 'video_id'),
             show='headings'
         )
         
@@ -1183,7 +1015,7 @@ class BiliFavGUI:
         self.download_list.heading('可用格式', text='可用格式')
         self.download_list.heading('进度', text='进度', command=lambda: self.sort_treeview('进度'))
         self.download_list.heading('速度', text='速度', command=lambda: self.sort_treeview('速度'))
-        self.download_list.heading('操作', text='操作')
+        self.download_list.heading('BV号', text='BV号')
         
         # 设置列宽
         self.download_list.column('序号', width=50)
@@ -1192,7 +1024,7 @@ class BiliFavGUI:
         self.download_list.column('可用格式', width=150)
         self.download_list.column('进度', width=80)
         self.download_list.column('速度', width=80)
-        self.download_list.column('操作', width=150)
+        self.download_list.column('BV号', width=150)
         self.download_list.column('video_id', width=0, stretch=False)
         
         # 创建右键菜单
@@ -1321,6 +1153,11 @@ class BiliFavGUI:
                 self.bili_jct.set(cookies.get('bili_jct', ''))
                 self.buvid3.set(cookies.get('buvid3', ''))
                 
+                # 设置登录过期时间（提前5分钟提醒）
+                expire_time = login_info.get('token_info', {}).get('expires_in', 0)
+                if expire_time:
+                    self.login_expire_time = time.time() + expire_time - 300  # 提前5分钟提醒
+                
                 # 保存到cookies文件
                 bili_cookies_path = os.path.join('config', 'bili_cookies.json')
                 with open(bili_cookies_path, 'w', encoding='utf-8') as f:
@@ -1335,6 +1172,7 @@ class BiliFavGUI:
         
         # 更新界面状态
         self.root.after(0, lambda: self.login_btn.config(text="已登录", state="disabled"))
+        self.root.after(0, lambda: self.logout_btn.config(state="normal"))  # 启用退出登录按钮
         self.root.after(0, lambda: self.download_btn.config(state="normal"))
         
         # 将登录状态保存到配置
@@ -1347,6 +1185,9 @@ class BiliFavGUI:
             
         # 验证登录状态
         self.verify_login()
+        
+        # 启动登录状态检查定时器
+        self.start_login_check_timer()
 
     def show_qrcode(self, qr_url):
         """显示二维码"""
@@ -1442,6 +1283,23 @@ class BiliFavGUI:
         if dir_path:
             self.output_dir_var.set(dir_path)
 
+    def extract_ids_from_url(self, url):
+        """从收藏夹URL中提取用户ID和收藏夹ID"""
+        try:
+            # 尝试通过正则表达式提取数字ID
+            ids = re.findall(r'(\d+)', url)
+            
+            if len(ids) >= 2:
+                # 第一个连续长数字是用户ID，第二个连续长数字是收藏夹ID
+                self.user_id.set(ids[0])
+                self.favorites_id.set(ids[1])
+                return ids[0], ids[1]
+            else:
+                raise ValueError("无法从URL中提取用户ID和收藏夹ID，请检查URL格式")
+        except Exception as e:
+            self.logger.error(f"提取ID失败：{str(e)}")
+            raise ValueError("提取URL中的ID失败：" + str(e))
+
     def list_favorites(self):
         """列出收藏夹内容"""
         if not self.verify_login():
@@ -1453,12 +1311,14 @@ class BiliFavGUI:
     def list_favorites_thread(self):
         """列出收藏夹内容的线程"""
         try:
-            # 获取收藏夹内容
-            user_id = self.user_id.get().strip()
-            favorites_id = self.favorites_id.get().strip()
+            # 获取收藏夹URL并提取ID
+            favorites_url = self.favorites_url.get().strip()
             
-            if not user_id or not favorites_id:
-                raise ValueError("请填写用户ID和收藏夹ID")
+            if not favorites_url:
+                raise ValueError("请填写收藏夹链接")
+            
+            # 从URL中提取用户ID和收藏夹ID
+            user_id, favorites_id = self.extract_ids_from_url(favorites_url)
             
             self.logger.info(f"开始获取用户 {user_id} 的收藏夹 {favorites_id}")
             
@@ -1582,123 +1442,16 @@ class BiliFavGUI:
             return index, ["获取格式失败"]
 
     def download_selected_format(self):
-        """下载选中的格式"""
-        selected = self.download_list.selection()
-        if not selected:
-            messagebox.showwarning("提示", "请先选择要下载的视频")
-            return
-            
-        # 获取选中项的信息
-        item = self.download_list.item(selected[0])
-        status = item['values'][2]
-        formats_str = item['values'][3]
-        
-        # 检查是否已获取到格式信息
-        if status == "等待获取格式...":
-            messagebox.showwarning("提示", "正在获取视频格式信息，请稍候...")
-            return
-        elif status == "格式获取失败":
-            if not messagebox.askyesno("警告", "该视频格式获取失败，是否重试？"):
-                return
-            # 重新获取格式
-            video_id = item['values'][6]
-            index = int(item['values'][0]) - 1
-            future = self.format_pool.submit(self.get_video_formats_task, index, video_id)
-            future.add_done_callback(lambda f: self.update_format_result(f, index))
-
-    def update_format_result(self, future, index):
-        """更新格式获取结果的回调函数"""
-        try:
-            index, formats = future.result()
-            formats_str = '\n'.join(formats)
-            
-            item_id = self.download_list.get_children()[index]
-            if formats[0] != "获取格式失败":
-                self.download_list.set(item_id, '状态', "待选择")
-            else:
-                self.download_list.set(item_id, '状态', "格式获取失败")
-            self.download_list.set(item_id, '可用格式', formats_str)
-            
-        except Exception as e:
-            self.logger.error(f"更新格式信息失败：{str(e)}")
+        """下载选中的格式（已废弃，使用新的下载队列机制）"""
+        pass
 
     def quick_download(self):
-        """一键下载最高画质"""
-        selected = self.download_list.selection()
-        if not selected:
-            messagebox.showwarning("提示", "请先选择要下载的视频")
-            return
-            
-        # 获取输出目录
-        output_dir = self.output_dir_var.get()
-        if not output_dir:
-            messagebox.showwarning("提示", "请先选择输出目录")
-            return
-            
-        download_count = 0
-        for item_id in selected:
-            item = self.download_list.item(item_id)
-            status = item['values'][2]
-            formats_str = item['values'][3]
-            video_id = item['values'][6]
-            title = item['values'][1]
-            
-            if status == "等待获取格式...":
-                self.logger.warning(f"跳过未获取格式的视频：{title}")
-                continue
-            
-            formats = formats_str.split('\n')
-            if not formats or formats[0] == "获取格式失败":
-                self.logger.warning(f"跳过格式获取失败的视频：{title}")
-                continue
-            
-            try:
-                # 选择第一个格式（通常是最高画质）
-                first_format = formats[0]
-                self.logger.debug(f"解析格式字符串：{first_format}")
-                
-                # 从格式字符串中提取格式代码，格式如 "1080P (dash-flv720)"
-                format_match = re.search(r'\((.*?)\)', first_format)
-                if not format_match:
-                    self.logger.error(f"无法从 {first_format} 提取格式代码")
-                    continue
-                    
-                format_code = format_match.group(1)
-                self.logger.info(f"为视频 {title} 选择格式：{first_format} (代码: {format_code})")
-                
-                # 更新状态
-                self.download_list.set(item_id, '状态', "下载中")
-                self.download_list.set(item_id, '进度', "0%")
-                self.download_list.set(item_id, '速度', "计算中")
-                
-                # 启动下载线程
-                download_thread = threading.Thread(
-                    target=self.download_video_thread,
-                    args=(video_id, title, format_code, output_dir, item_id)
-                )
-                download_thread.daemon = True  # 设置为守护线程
-                download_thread.start()
-                
-                download_count += 1
-                
-            except Exception as e:
-                self.logger.error(f"处理视频 {title} 时出错：{str(e)}")
-                self.download_list.set(item_id, '状态', "启动失败")
-                continue
-        
-        if download_count > 0:
-            # 启用控制按钮
-            self.pause_all_btn.state(['!disabled'])
-            self.cancel_all_btn.state(['!disabled'])
-            
-            # 重置下载状态
-            self.paused = False
-            self.cancelled = False
-            self.pause_event.set()
-            
-            self.logger.info(f"成功启动 {download_count} 个下载任务")
-        else:
-            messagebox.showwarning("提示", "没有可下载的视频")
+        """一键下载最高画质（已废弃，使用新的下载队列机制）"""
+        pass
+
+    def get_progress(self, progress_str):
+        """获取进度（已废弃，使用新的进度计算机制）"""
+        pass
 
     def pause_all_downloads(self):
         """暂停所有下载"""
@@ -1947,37 +1700,68 @@ class BiliFavGUI:
 
     def logout(self):
         """退出登录"""
-        if messagebox.askyesno("确认", "确定要退出登录吗？"):
+        try:
+            # 确认对话框
+            if not messagebox.askyesno("确认", "确定要退出登录吗？"):
+                return
+                
+            self.logger.info("开始退出登录...")
+            
             # 清除cookie文件
             if os.path.exists(self.cookies_file):
                 os.remove(self.cookies_file)
-                
-            # 清除bili_cookies.json文件
-            bili_cookies_path = os.path.join('config', 'bili_cookies.json')
-            if os.path.exists(bili_cookies_path):
-                os.remove(bili_cookies_path)
-                
+                self.logger.info("已删除cookies文件")
+            
             # 清除info.json文件
             info_path = os.path.join('config', 'info.json')
             if os.path.exists(info_path):
                 os.remove(info_path)
+                self.logger.info("已删除info.json文件")
             
-            # 清除cookie数据
-            self.cookies = None
+            # 清除bili_cookies.json文件
+            bili_cookies_path = os.path.join('config', 'bili_cookies.json')
+            if os.path.exists(bili_cookies_path):
+                os.remove(bili_cookies_path)
+                self.logger.info("已删除bili_cookies.json文件")
             
-            # 更新状态显示
-            self.login_status.config(text="需要登录", foreground="red")
+            # 清除登录状态变量
+            self.sessdata.set('')
+            self.bili_jct.set('')
+            self.buvid3.set('')
             
-            # 禁用下载相关按钮
-            self.download_btn.state(['disabled'])
-            self.download_selected_btn.state(['disabled'])
+            # 更新界面状态
+            self.login_status.config(text="未登录", foreground="red")
+            self.login_btn.config(text="登录", state="normal")
+            self.logout_btn.config(state="disabled")  # 禁用退出登录按钮
+            self.download_btn.config(state="disabled")
+            self.add_to_queue_btn.config(state="disabled")
+            self.start_queue_btn.config(state="disabled")
+            self.add_all_btn.config(state="disabled")
             
             # 清空下载列表
             for item in self.download_list.get_children():
                 self.download_list.delete(item)
             
-            # 弹出登录窗口
-            self.login()
+            # 清除下载队列
+            while not self.download_queue.empty():
+                self.download_queue.get()
+                self.download_queue.task_done()
+            
+            # 取消所有正在进行的下载
+            self.cancel_all_downloads()
+            
+            # 清除登录过期时间
+            self.login_expire_time = None
+            
+            # 保存配置
+            self.save_values()
+            
+            self.logger.info("退出登录完成")
+            messagebox.showinfo("提示", "已成功退出登录")
+            
+        except Exception as e:
+            self.logger.error(f"退出登录时出错：{str(e)}")
+            messagebox.showerror("错误", f"退出登录时出错：{str(e)}")
 
     def add_to_download_queue(self):
         """添加选中的视频到下载队列"""
@@ -2136,115 +1920,6 @@ class BiliFavGUI:
         finally:
             self.is_downloading = False
 
-    def download_video_thread(self, video_id, title, format_code, output_dir, item_id):
-        """下载视频的线程"""
-        process = None
-        try:
-            video_url = f"https://www.bilibili.com/video/{video_id}"
-            
-            # 构建下载命令
-            cmd = [
-                f'"{self.you_get_path}"',
-                f'--format={format_code}',
-                f'-o "{output_dir}"',
-                f'-c "{self.cookies_file}"'
-            ]
-            
-            # 检查弹幕下载选项
-            danmaku_enabled = self.download_danmaku.get()
-            self.logger.info(f"弹幕下载状态: {"启用" if danmaku_enabled else "禁用"}")
-            
-            if not danmaku_enabled:
-                cmd.append('--no-caption')
-                self.logger.info(f"跳过下载视频 {title} 的弹幕")
-            else:
-                self.logger.info(f"将下载视频 {title} 的弹幕")
-            
-            cmd.append(f'"{video_url}"')
-            
-            # 合并命令
-            cmd = ' '.join(cmd)
-            self.logger.debug(f"下载命令: {cmd}")
-            
-            # 使用 subprocess.Popen 时指定编码
-            process = subprocess.Popen(
-                cmd,
-                shell=True,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                universal_newlines=True,
-                encoding='utf-8',
-                errors='replace'
-            )
-            
-            # 添加到活动进程列表
-            self.active_processes.append(process)
-            
-            last_update = time.time()
-            
-            # 更新进度
-            while process.poll() is None:
-                # 检查是否被取消
-                if self.cancelled:
-                    process.terminate()
-                    try:
-                        process.wait(timeout=5)
-                    except subprocess.TimeoutExpired:
-                        process.kill()
-                    self.logger.info(f"取消下载视频：{title}")
-                    self.update_download_status(item_id, "已取消", "-", "-")
-                    return
-                
-                try:
-                    line = process.stdout.readline()
-                    if not line:
-                        continue
-                    
-                    # 记录输出到日志
-                    if line.strip():
-                        self.logger.debug(f"you-get输出: {line.strip()}")
-                    
-                    # 解析进度信息
-                    if '%' in line:
-                        try:
-                            progress_match = re.search(r'(\d+\.?\d*)%', line)
-                            if progress_match:
-                                progress = str(int(float(progress_match.group(1))))
-                                
-                            speed_match = re.search(r'(\d+\.?\d*\s*[KMG]?B/s)', line)
-                            speed = speed_match.group(1) if speed_match else "计算中"
-                            
-                            current_time = time.time()
-                            if current_time - last_update >= 0.1:
-                                self.update_download_status(item_id, "下载中", f"{progress}%", speed)
-                                last_update = current_time
-                                self.root.update()
-                        except Exception as e:
-                            self.logger.warning(f"解析进度信息失败：{str(e)}")
-                            continue
-                except Exception as e:
-                    self.logger.warning(f"读取输出时出错：{str(e)}")
-                    continue
-            
-            # 检查下载结果
-            if process.returncode == 0:
-                self.logger.info(f"视频 {title} 下载完成")
-                self.update_download_status(item_id, "已完成", "100%", "-")
-            else:
-                error = process.stderr.read() if process else "未知错误"
-                self.logger.error(f"下载失败：{error}")
-                self.update_download_status(item_id, "失败", "-", "-")
-                messagebox.showerror("错误", f"下载失败：{error}")
-                
-        except Exception as e:
-            self.logger.error(f"下载过程出错：{str(e)}")
-            messagebox.showerror("错误", f"下载过程出错：{str(e)}")
-            self.update_download_status(item_id, "失败", "-", "-")
-        finally:
-            # 从活动进程列表中移除
-            if process in self.active_processes:
-                self.active_processes.remove(process)
-
     def load_saved_values(self):
         """加载保存的配置值"""
         try:
@@ -2255,6 +1930,7 @@ class BiliFavGUI:
                     # 加载基本配置
                     self.user_id.set(config.get('user_id', ''))
                     self.favorites_id.set(config.get('favorites_id', ''))
+                    self.favorites_url.set(config.get('favorites_url', ''))
                     self.output_dir_var.set(config.get('output_dir', ''))
                     self.download_danmaku.set(config.get('download_danmaku', False))
                     self.max_workers.set(config.get('max_workers', '3'))  # 加载并行下载数量
@@ -2279,6 +1955,7 @@ class BiliFavGUI:
             config = {
                 'user_id': self.user_id.get().strip(),
                 'favorites_id': self.favorites_id.get().strip(),
+                'favorites_url': self.favorites_url.get().strip(),
                 'output_dir': self.output_dir_var.get().strip(),
                 'download_danmaku': self.download_danmaku.get(),
                 'max_workers': self.max_workers.get(),  # 保存并行下载数量
@@ -2347,6 +2024,10 @@ class BiliFavGUI:
     def on_closing(self):
         """窗口关闭时的处理"""
         try:
+            # 取消登录状态检查定时器
+            if self.login_check_timer:
+                self.root.after_cancel(self.login_check_timer)
+            
             # 保存配置
             self.save_values()
             # 保存格式缓存
@@ -2464,15 +2145,42 @@ class BiliFavGUI:
     def show_context_menu(self, event):
         """显示右键菜单"""
         try:
-            # 获取点击位置对应的item
+            # 获取点击位置对应的item和列
             item = self.download_list.identify_row(event.y)
+            column = self.download_list.identify_column(event.x)
+            
             if item:
                 # 选中被点击的item
                 self.download_list.selection_set(item)
-                # 显示菜单
+                
+                # 清除现有菜单项
+                self.context_menu.delete(0, tk.END)
+                
+                # 在BV号列显示复制选项，其他列显示取消选项
+                if column == '#7':  # BV号列的索引是7
+                    self.context_menu.add_command(
+                        label="复制BV号",
+                        command=lambda: self.copy_bv_number(item)
+                    )
+                else:
+                    self.context_menu.add_command(
+                        label="取消",
+                        command=lambda: self.cancel_download([item])
+                    )
                 self.context_menu.post(event.x_root, event.y_root)
         except Exception as e:
             self.logger.error(f"显示右键菜单时出错：{str(e)}")
+
+    def copy_bv_number(self, item_id):
+        """复制BV号到剪贴板"""
+        try:
+            bv_number = self.download_list.set(item_id, 'BV号')
+            if bv_number:
+                self.root.clipboard_clear()
+                self.root.clipboard_append(bv_number)
+                self.logger.info(f"已复制BV号：{bv_number}")
+        except Exception as e:
+            self.logger.error(f"复制BV号时出错：{str(e)}")
 
     def pause_download(self, selected_items):
         """暂停选中的下载"""
@@ -2541,6 +2249,39 @@ class BiliFavGUI:
                 self.download_list.set(item_id, '速度', speed)
         except Exception as e:
             self.logger.error(f"更新下载状态时出错：{str(e)}")
+
+    def start_login_check_timer(self):
+        """启动登录状态检查定时器"""
+        if self.login_check_timer:
+            self.root.after_cancel(self.login_check_timer)
+        
+        # 每5分钟检查一次登录状态
+        self.login_check_timer = self.root.after(300000, self.check_login_status)
+        
+    def check_login_status(self):
+        """检查登录状态"""
+        try:
+            if not self.verify_login():
+                # 如果登录状态无效，尝试刷新
+                if self.bili_fav.refresh_login():
+                    self.logger.info("登录状态已刷新")
+                    self.verify_login()
+                else:
+                    self.logger.warning("登录状态已失效，需要重新登录")
+                    self.login_status.config(text="登录已失效", foreground="red")
+                    messagebox.showwarning("登录状态", "您的登录状态已失效，请重新登录")
+            
+            # 检查登录过期时间
+            if self.login_expire_time and time.time() > self.login_expire_time:
+                self.logger.warning("登录即将过期，请重新登录")
+                messagebox.showwarning("登录状态", "您的登录即将过期，请重新登录")
+            
+            # 重新启动定时器
+            self.start_login_check_timer()
+            
+        except Exception as e:
+            self.logger.error(f"检查登录状态时出错：{str(e)}")
+            self.start_login_check_timer()
 
 def main():
     app = BiliFavGUI()
